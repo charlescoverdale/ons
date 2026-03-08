@@ -128,6 +128,19 @@ if (length(lines) > 0L && grepl("<!DOCTYPE|<html", lines[1L], ignore.case = TRUE
   # Remove rows where value is NA (e.g. notes, blank rows)
   df <- df[!is.na(df$value), , drop = FALSE]
 
+  # Classify each row by frequency
+  df$freq <- classify_ons_period(df$period)
+  df <- df[df$freq != "unknown", , drop = FALSE]
+
+  # Keep only the most granular frequency
+  # ONS CSVs contain annual + quarterly + monthly in one file
+  if ("monthly" %in% df$freq) {
+    df <- df[df$freq == "monthly", , drop = FALSE]
+  } else if ("quarterly" %in% df$freq) {
+    df <- df[df$freq == "quarterly", , drop = FALSE]
+  }
+  # else keep annual
+
   # Parse periods to dates
   df$date <- parse_ons_period(df$period)
   df <- df[!is.na(df$date), , drop = FALSE]
@@ -137,6 +150,19 @@ if (length(lines) > 0L && grepl("<!DOCTYPE|<html", lines[1L], ignore.case = TRUE
     value = df$value,
     stringsAsFactors = FALSE
   )
+}
+
+# ---- Classify ONS period strings by frequency ----
+
+#' @noRd
+classify_ons_period <- function(period) {
+  vapply(period, function(p) {
+    p <- trimws(p)
+    if (grepl("^\\d{4}\\s+[A-Z]{3}$", p)) return("monthly")
+    if (grepl("^\\d{4}\\s+Q[1-4]$", p)) return("quarterly")
+    if (grepl("^\\d{4}$", p)) return("annual")
+    "unknown"
+  }, character(1L), USE.NAMES = FALSE)
 }
 
 # ---- Parse ONS period strings to Date ----
