@@ -247,20 +247,16 @@ clear_cache()
 
 ---
 
-## Part of a suite
-
-This package is part of a family of R packages for UK economic and fiscal data. They share a consistent interface — named functions, tidy data frames, local caching — and are designed to work together. Combine ONS GDP and inflation data with [Bank of England](https://github.com/charlescoverdale/boe) interest rates, cross-reference [OBR](https://github.com/charlescoverdale/obr) fiscal forecasts with [HMRC](https://github.com/charlescoverdale/hmrc) tax receipts, or adjust any series for inflation with [`inflateR`](https://github.com/charlescoverdale/inflateR). All outputs join cleanly on date columns.
-
 ## Related packages
+
+This package is part of a family of R packages for UK economic and fiscal data. They share a consistent interface — named functions, tidy data frames, local caching — and are designed to work together. All outputs join cleanly on date columns.
 
 | Package | What it covers |
 |---|---|
 | [`boe`](https://github.com/charlescoverdale/boe) | Bank of England data (Bank Rate, SONIA, gilt yields, exchange rates, mortgage rates) |
 | [`hmrc`](https://github.com/charlescoverdale/hmrc) | HMRC tax receipts, corporation tax, stamp duty, R&D credits, and tax gap data |
 | [`obr`](https://github.com/charlescoverdale/obr) | OBR fiscal forecasts and the Public Finances Databank |
-| [`readoecd`](https://github.com/charlescoverdale/readoecd) | OECD economic indicators (GDP, CPI, unemployment, tax, health, education) |
 | [`inflateR`](https://github.com/charlescoverdale/inflateR) | Adjust values for inflation using CPI or GDP deflator data |
-| [`nomisr`](https://github.com/ropensci/nomisr) | ONS/Nomis labour market data |
 
 ---
 
