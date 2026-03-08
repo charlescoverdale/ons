@@ -247,6 +247,10 @@ clear_cache()
 
 ---
 
+## Part of a suite
+
+This package is part of a family of R packages for UK economic and fiscal data. They share a consistent interface — named functions, tidy data frames, local caching — and are designed to work together. Combine ONS GDP and inflation data with [Bank of England](https://github.com/charlescoverdale/boe) interest rates, cross-reference [OBR](https://github.com/charlescoverdale/obr) fiscal forecasts with [HMRC](https://github.com/charlescoverdale/hmrc) tax receipts, or adjust any series for inflation with [`inflateR`](https://github.com/charlescoverdale/inflateR). All outputs join cleanly on date columns.
+
 ## Related packages
 
 | Package | What it covers |
