@@ -23,8 +23,7 @@ ons_fetch <- function(cdid, topic_path, dataset_code,
   out <- parse_ons_csv(raw, cdid = cdid)
 
   # Apply date filters
-
-if (!is.null(from)) {
+  if (!is.null(from)) {
     from <- as.Date(from)
     out <- out[out$date >= from, , drop = FALSE]
   }
@@ -83,7 +82,7 @@ parse_ons_csv <- function(raw, cdid = NULL) {
   lines <- strsplit(raw, "\r?\n")[[1L]]
 
   # Detect HTML error pages
-if (length(lines) > 0L && grepl("<!DOCTYPE|<html", lines[1L], ignore.case = TRUE)) {
+  if (length(lines) > 0L && grepl("<!DOCTYPE|<html", lines[1L], ignore.case = TRUE)) {
     label <- if (!is.null(cdid)) cdid else "unknown"
     cli::cli_abort(
       "ONS returned an HTML page instead of CSV for {.val {label}}. The series may not exist."
