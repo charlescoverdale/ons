@@ -17,7 +17,8 @@ None — this is a new package with no reverse dependencies.
 * All functions that make network requests are wrapped in `\donttest{}` in
   examples and `skip_on_cran()` + `skip_if_offline()` in tests.
 * Data is fetched from the Office for National Statistics website at
-  `https://www.ons.gov.uk` and the ONS Search API at
-  `https://api.beta.ons.gov.uk/v1/search`.
+  `https://www.ons.gov.uk`, the ONS Search API at
+  `https://api.beta.ons.gov.uk/v1/search`, and HM Land Registry at
+  `https://publicdata.landregistry.gov.uk` (house prices only).
 * Local caching uses `tools::R_user_dir("ons", "cache")` (base R, no
   additional dependencies).
