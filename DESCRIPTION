@@ -1,0 +1,29 @@
+Package: ons
+Title: Download Data from the Office for National Statistics
+Version: 0.1.0
+Authors@R:
+    person("Charles", "Coverdale", , "charlesfcoverdale@gmail.com",
+           role = c("aut", "cre"))
+Description: Provides functions to download and tidy statistical data
+    published by the Office for National Statistics
+    <https://www.ons.gov.uk>. Covers GDP, inflation (CPI, CPIH, RPI),
+    unemployment, employment, wages, trade, retail sales, house prices,
+    productivity, population, and public sector finances. Series are
+    fetched from the ONS website using its CSV time series endpoint.
+    Data is cached locally between sessions.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Language: en-GB
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3
+Imports:
+    cli (>= 3.6.0),
+    httr2 (>= 1.0.0),
+    tools
+Suggests:
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+URL: https://github.com/charlescoverdale/ons
+BugReports: https://github.com/charlescoverdale/ons/issues
+Depends:
+    R (>= 4.1.0)
