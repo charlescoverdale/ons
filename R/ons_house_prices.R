@@ -4,6 +4,9 @@
 #' Price Index. Available from 1968. Data is jointly produced by the ONS
 #' and HM Land Registry.
 #'
+#' The function automatically finds the latest available monthly file from
+#' HM Land Registry, working backwards from the current month.
+#'
 #' @param from Date or character (YYYY-MM-DD). Start date. Defaults to
 #'   `NULL` (all available data).
 #' @param to Date or character (YYYY-MM-DD). End date. Defaults to `NULL`.
@@ -17,7 +20,7 @@
 #'   }
 #'
 #' @source
-#' <https://www.gov.uk/government/statistical-data-sets/uk-house-price-index-data-downloads-november-2025>
+#' <https://www.gov.uk/government/collections/uk-house-price-index-reports>
 #'
 #' @examples
 #' \donttest{
@@ -29,14 +32,9 @@ ons_house_prices <- function(from  = NULL,
                              to    = NULL,
                              cache = TRUE) {
 
-  # Use the latest Land Registry CSV — the URL includes a date but the
- # file contains the full historical series back to 1968.
-  url <- paste0(
-    "https://publicdata.landregistry.gov.uk/market-trend-data/",
-    "house-price-index-data/Average-prices-2025-12.csv"
-  )
-
   cli::cli_progress_step("Fetching house prices")
+
+  url <- find_latest_hpi_url(cache = cache)
   raw <- download_cached_ons(url, cache = cache)
 
   tc <- textConnection(raw)
@@ -68,4 +66,69 @@ ons_house_prices <- function(from  = NULL,
   rownames(result) <- NULL
   cli::cli_progress_done()
   result
+}
+
+
+#' Find the latest available HPI CSV URL
+#'
+#' Tries the current month, then works backwards up to 6 months until a
+#' file is found. The Land Registry typically publishes 2 months behind.
+#'
+#' @noRd
+find_latest_hpi_url <- function(cache = TRUE) {
+
+  base_url <- paste0(
+    "https://publicdata.landregistry.gov.uk/market-trend-data/",
+    "house-price-index-data/Average-prices-"
+  )
+
+  # Check cache first — if we have any HPI file cached, use it
+  if (isTRUE(cache)) {
+    cache_dir <- ons_cache_dir()
+    if (dir.exists(cache_dir)) {
+      cached <- list.files(cache_dir, pattern = "^ons_.*\\.rds$",
+                           full.names = TRUE)
+      for (f in cached) {
+        content <- tryCatch(readRDS(f), error = function(e) NULL)
+        if (!is.null(content) && grepl("Region_Name", content, fixed = TRUE)) {
+          # Found a cached HPI file — reconstruct the URL from cache
+          # The cache key maps URL -> file, so this cached file is still valid
+          return(attr(f, "url") %||% find_hpi_url_by_probe(base_url))
+        }
+      }
+    }
+  }
+
+  find_hpi_url_by_probe(base_url)
+}
+
+
+#' Probe for the latest HPI file by trying recent months
+#'
+#' @noRd
+find_hpi_url_by_probe <- function(base_url) {
+
+  today <- Sys.Date()
+
+  # Try current month, then go back up to 6 months
+  for (offset in 0:6) {
+    probe_date <- seq.Date(today, by = "-1 month", length.out = offset + 1L)
+    probe_date <- probe_date[length(probe_date)]
+    suffix <- format(probe_date, "%Y-%m")
+    url <- paste0(base_url, suffix, ".csv")
+
+    req <- httr2::request(url)
+    req <- httr2::req_method(req, "HEAD")
+    req <- httr2::req_user_agent(req, "ons R package (https://github.com/charlescoverdale/ons)")
+    req <- httr2::req_error(req, is_error = function(resp) FALSE)
+    resp <- tryCatch(httr2::req_perform(req), error = function(e) NULL)
+
+    if (!is.null(resp) && httr2::resp_status(resp) == 200L) {
+      return(url)
+    }
+  }
+
+  cli::cli_abort(
+    "Could not find a recent HPI file from HM Land Registry. Tried the last 7 months."
+  )
 }

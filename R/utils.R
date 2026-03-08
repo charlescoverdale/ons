@@ -247,8 +247,8 @@ download_cached_ons <- function(url, cache = TRUE) {
 
   req <- httr2::request(url)
   req <- httr2::req_user_agent(req, "ons R package (https://github.com/charlescoverdale/ons)")
-  req <- httr2::req_throttle(req, rate = 8 / 10)
-  req <- httr2::req_retry(req, max_tries = 5L, backoff = ~ 5,
+  req <- httr2::req_throttle(req, rate = 5 / 10)
+  req <- httr2::req_retry(req, max_tries = 6L, backoff = ~ 8,
                           is_transient = function(resp) {
                             httr2::resp_status(resp) == 429L
                           })

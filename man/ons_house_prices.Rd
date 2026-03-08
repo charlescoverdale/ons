@@ -4,7 +4,7 @@
 \alias{ons_house_prices}
 \title{Download UK house prices}
 \source{
-\url{https://www.gov.uk/government/statistical-data-sets/uk-house-price-index-data-downloads-november-2025}
+\url{https://www.gov.uk/government/collections/uk-house-price-index-reports}
 }
 \usage{
 ons_house_prices(from = NULL, to = NULL, cache = TRUE)
@@ -29,6 +29,10 @@ A data frame with columns:
 Downloads UK average house prices from the HM Land Registry UK House
 Price Index. Available from 1968. Data is jointly produced by the ONS
 and HM Land Registry.
+}
+\details{
+The function automatically finds the latest available monthly file from
+HM Land Registry, working backwards from the current month.
 }
 \examples{
 \donttest{
