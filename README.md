@@ -74,7 +74,7 @@ remotes::install_github("charlescoverdale/ons")
 
 ## Examples
 
-### How fast is the economy growing?
+### How fast is the UK economy growing?
 
 ```r
 library(ons)
@@ -93,7 +93,7 @@ tail(gdp, 6)
 
 ---
 
-### What is inflation doing?
+### How has inflation changed over time?
 
 ```r
 # CPI annual rate
@@ -114,7 +114,7 @@ ons_cpi(measure = "rpi", type = "index", from = "2024-01-01")
 
 ---
 
-### What is unemployment?
+### What is the UK unemployment rate?
 
 ```r
 # Unemployment rate (16+, SA)
@@ -131,7 +131,7 @@ tail(unemp, 6)
 
 ---
 
-### How much are people earning?
+### How have wages changed over time?
 
 ```r
 # Average weekly earnings (GBP)
@@ -152,7 +152,7 @@ ons_wages(measure = "real", from = "2024-01-01")
 
 ---
 
-### What are house prices doing?
+### What is the average UK house price?
 
 ```r
 # UK average house price
@@ -169,7 +169,7 @@ tail(hp, 6)
 
 ---
 
-### What is the trade balance?
+### What is the UK's trade balance?
 
 ```r
 # Trade balance (GBP millions, negative = deficit)
@@ -189,7 +189,7 @@ ons_trade(measure = "exports", from = "2024-01-01")
 
 ---
 
-### How much is the government borrowing?
+### How much is the UK government borrowing?
 
 ```r
 # Public sector net borrowing (GBP millions)
