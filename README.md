@@ -6,7 +6,7 @@ An R package for downloading data from the [Office for National Statistics](http
 
 ## What is the ONS?
 
-The Office for National Statistics is the UK's national statistical authority. It produces the headline economic data that drives policy and markets — GDP, inflation, unemployment, wages, trade, house prices, retail sales, and population estimates. Its releases move sterling, set the agenda for the Bank of England's Monetary Policy Committee, and underpin economic research across the UK.
+The Office for National Statistics is the UK's national statistical authority. It produces the headline economic data that drives policy and markets - GDP, inflation, unemployment, wages, trade, house prices, retail sales, and population estimates. Its releases move sterling, set the agenda for the Bank of England's Monetary Policy Committee, and underpin economic research across the UK.
 
 The ONS publishes thousands of time series through its [website](https://www.ons.gov.uk), each identified by a four-character CDID code. The data is freely available, but using it programmatically requires knowing these codes, constructing download URLs with topic paths and dataset identifiers, parsing CSV files with metadata headers, and handling mixed-frequency data where annual, quarterly, and monthly observations appear in a single file.
 
@@ -14,9 +14,9 @@ This package replaces all of that with named functions that return clean data fr
 
 ## How is this different from existing packages?
 
-The [`onsr`](https://cran.r-project.org/package=onsr) package on CRAN wraps the ONS Beta API — but that API does not host most headline economic time series. GDP, CPI, unemployment, wages, and trade data are not available through it. `onsr` is useful for Census data and regional breakdowns, but cannot access the series most people actually want. It was last actively developed in 2021.
+The [`onsr`](https://cran.r-project.org/package=onsr) package on CRAN wraps the ONS Beta API - but that API does not host most headline economic time series. GDP, CPI, unemployment, wages, and trade data are not available through it. `onsr` is useful for Census data and regional breakdowns, but cannot access the series most people actually want. It was last actively developed in 2021.
 
-This package takes a different approach. It fetches data directly from the ONS website's CSV time series endpoint, which covers every published CDID. You get named functions — `ons_gdp()`, `ons_cpi()`, `ons_unemployment()` — that handle series codes, URL construction, frequency filtering, and caching internally.
+This package takes a different approach. It fetches data directly from the ONS website's CSV time series endpoint, which covers every published CDID. You get named functions - `ons_gdp()`, `ons_cpi()`, `ons_unemployment()` - that handle series codes, URL construction, frequency filtering, and caching internally.
 
 ## Why does this package exist?
 
@@ -68,8 +68,8 @@ devtools::install_github("charlescoverdale/ons")
 | `ons_population()` | Mid-year population estimates | 1971 |
 | `ons_public_finances()` | Public sector net borrowing (GBP millions) | 1993 |
 | `ons_get()` | Fetch any series by CDID code | Any |
-| `ons_search()` | Search the ONS catalogue by keyword | — |
-| `clear_cache()` | Delete locally cached data files | — |
+| `ons_search()` | Search the ONS catalogue by keyword | - |
+| `clear_cache()` | Delete locally cached data files | - |
 
 ---
 
@@ -233,7 +233,7 @@ ons_search("GDP growth")
 
 ## Caching
 
-All downloads are cached locally in your user cache directory. Subsequent calls return the cached copy instantly — no network request is made.
+All downloads are cached locally in your user cache directory. Subsequent calls return the cached copy instantly - no network request is made.
 
 ```r
 # Force a fresh download
@@ -250,7 +250,7 @@ clear_cache()
 
 ## Related packages
 
-This package is part of a family of R packages for UK economic and fiscal data. They share a consistent interface — named functions, tidy data frames, local caching — and are designed to work together. All outputs join cleanly on date columns.
+This package is part of a family of R packages for UK economic and fiscal data. They share a consistent interface - named functions, tidy data frames, local caching - and are designed to work together. All outputs join cleanly on date columns.
 
 | Package | What it covers |
 |---|---|
