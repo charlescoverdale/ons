@@ -40,11 +40,12 @@ ons_gdp(from = "2020-01-01")
 
 ## Installation
 
-Install the development version from GitHub:
-
 ```r
-# install.packages("remotes")
-remotes::install_github("charlescoverdale/ons")
+install.packages("ons")
+
+# Or install the development version from GitHub
+# install.packages("devtools")
+devtools::install_github("charlescoverdale/ons")
 ```
 
 ---
