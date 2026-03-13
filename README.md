@@ -1,6 +1,5 @@
 # ons
 
-[![R-CMD-check](https://github.com/charlescoverdale/ons/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/charlescoverdale/ons/actions/workflows/R-CMD-check.yaml)
 [![CRAN status](https://www.r-pkg.org/badges/version/ons)](https://CRAN.R-project.org/package=ons) [![CRAN downloads](https://cranlogs.r-pkg.org/badges/ons)](https://cran.r-project.org/package=ons) [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 An R package for downloading data from the [Office for National Statistics](https://www.ons.gov.uk).
