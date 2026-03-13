@@ -1,0 +1,50 @@
+url: https://charlescoverdale.github.io/ons/
+
+template:
+  bootstrap: 5
+
+navbar:
+  structure:
+    left:  [intro, reference, articles, news]
+    right: [search, github]
+
+reference:
+  - title: "Economic Indicators"
+    desc: "GDP, inflation, productivity, and population"
+    contents:
+      - ons_gdp
+      - ons_monthly_gdp
+      - ons_cpi
+      - ons_productivity
+      - ons_population
+
+  - title: "Labour Market"
+    desc: "Employment, unemployment, inactivity, and wages"
+    contents:
+      - ons_unemployment
+      - ons_employment
+      - ons_inactivity
+      - ons_wages
+
+  - title: "Trade & Retail"
+    desc: "International trade and retail sales"
+    contents:
+      - ons_trade
+      - ons_retail_sales
+
+  - title: "Housing & Public Finances"
+    desc: "House prices and government borrowing"
+    contents:
+      - ons_house_prices
+      - ons_public_finances
+
+  - title: "General"
+    desc: "Fetch any series or search the ONS catalogue"
+    contents:
+      - ons_get
+      - ons_search
+
+  - title: "Utilities"
+    desc: "Cache management"
+    contents:
+      - clear_cache

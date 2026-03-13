@@ -1,0 +1,8 @@
+bibentry(
+  bibtype = "Manual",
+  title   = "ons: Access UK Office for National Statistics Data",
+  author  = person("Charles", "Coverdale"),
+  year    = "2026",
+  note    = "R package version 0.1.0",
+  url     = "https://github.com/charlescoverdale/ons"
+)
