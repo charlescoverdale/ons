@@ -44,3 +44,9 @@ ons_get("IHYQ", from = "2020-01-01")
 }
 
 }
+\seealso{
+Other data access: 
+\code{\link{clear_cache}()},
+\code{\link{ons_search}()}
+}
+\concept{data access}

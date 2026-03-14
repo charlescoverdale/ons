@@ -25,6 +25,7 @@
 #' ons_trade(from = "2020-01-01")
 #' }
 #'
+#' @family trade and prices
 #' @export
 ons_trade <- function(measure = c("balance", "exports", "imports"),
                       from    = NULL,

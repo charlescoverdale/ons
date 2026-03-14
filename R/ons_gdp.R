@@ -27,6 +27,7 @@
 #' ons_gdp(from = "2020-01-01")
 #' }
 #'
+#' @family economic indicators
 #' @export
 ons_gdp <- function(measure = c("growth", "yoy", "level", "nominal"),
                     from    = NULL,

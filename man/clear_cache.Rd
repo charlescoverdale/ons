@@ -25,3 +25,9 @@ clear_cache()
 }
 
 }
+\seealso{
+Other data access: 
+\code{\link{ons_get}()},
+\code{\link{ons_search}()}
+}
+\concept{data access}

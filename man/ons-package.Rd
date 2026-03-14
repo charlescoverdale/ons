@@ -21,4 +21,15 @@ Useful links:
 \strong{Maintainer}: Charles Coverdale \email{charlesfcoverdale@gmail.com}
 
 }
+\concept{CPI}
+\concept{GDP}
+\concept{ONS}
+\concept{Office for National Statistics}
+\concept{UK economic data}
+\concept{house prices}
+\concept{inflation}
+\concept{population}
+\concept{trade}
+\concept{unemployment}
+\concept{wages}
 \keyword{internal}

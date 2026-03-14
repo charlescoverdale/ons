@@ -22,6 +22,7 @@
 #' ons_population(from = "2000-01-01")
 #' }
 #'
+#' @family economic indicators
 #' @export
 ons_population <- function(from  = NULL,
                            to    = NULL,

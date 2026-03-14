@@ -27,6 +27,7 @@
 #' ons_house_prices(from = "2020-01-01")
 #' }
 #'
+#' @family trade and prices
 #' @export
 ons_house_prices <- function(from  = NULL,
                              to    = NULL,

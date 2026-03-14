@@ -25,6 +25,7 @@
 #' ons_productivity(from = "2020-01-01")
 #' }
 #'
+#' @family economic indicators
 #' @export
 ons_productivity <- function(measure = c("per_hour", "per_worker"),
                              from    = NULL,

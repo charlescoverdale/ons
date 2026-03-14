@@ -15,6 +15,7 @@
 #' clear_cache()
 #' }
 #'
+#' @family data access
 #' @export
 clear_cache <- function(max_age_days = NULL) {
 

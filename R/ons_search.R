@@ -24,6 +24,7 @@
 #' ons_search("GDP growth")
 #' }
 #'
+#' @family data access
 #' @export
 ons_search <- function(query, limit = 10L) {
 

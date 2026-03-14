@@ -26,6 +26,7 @@
 #' ons_wages(from = "2020-01-01")
 #' }
 #'
+#' @family labour market
 #' @export
 ons_wages <- function(measure = c("level", "growth", "real"),
                       from    = NULL,

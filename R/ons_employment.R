@@ -24,6 +24,7 @@
 #' ons_employment(from = "2020-01-01")
 #' }
 #'
+#' @family labour market
 #' @export
 ons_employment <- function(group = c("total", "male", "female"),
                            from  = NULL,

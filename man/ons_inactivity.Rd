@@ -35,3 +35,10 @@ ons_inactivity(from = "2020-01-01")
 }
 
 }
+\seealso{
+Other labour market: 
+\code{\link{ons_employment}()},
+\code{\link{ons_unemployment}()},
+\code{\link{ons_wages}()}
+}
+\concept{labour market}

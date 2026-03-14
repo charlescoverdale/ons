@@ -25,6 +25,7 @@
 #' ons_retail_sales(from = "2020-01-01")
 #' }
 #'
+#' @family trade and prices
 #' @export
 ons_retail_sales <- function(type  = c("volume", "value"),
                              from  = NULL,

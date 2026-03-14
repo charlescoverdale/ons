@@ -34,3 +34,11 @@ ons_monthly_gdp(from = "2020-01-01")
 }
 
 }
+\seealso{
+Other economic indicators: 
+\code{\link{ons_cpi}()},
+\code{\link{ons_gdp}()},
+\code{\link{ons_population}()},
+\code{\link{ons_productivity}()}
+}
+\concept{economic indicators}

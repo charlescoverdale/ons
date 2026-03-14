@@ -23,6 +23,7 @@
 #' ons_inactivity(from = "2020-01-01")
 #' }
 #'
+#' @family labour market
 #' @export
 ons_inactivity <- function(from  = NULL,
                            to    = NULL,

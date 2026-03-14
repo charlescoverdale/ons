@@ -43,3 +43,9 @@ ons_trade(from = "2020-01-01")
 }
 
 }
+\seealso{
+Other trade and prices: 
+\code{\link{ons_house_prices}()},
+\code{\link{ons_retail_sales}()}
+}
+\concept{trade and prices}

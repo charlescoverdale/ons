@@ -35,3 +35,9 @@ ons_search("GDP growth")
 }
 
 }
+\seealso{
+Other data access: 
+\code{\link{clear_cache}()},
+\code{\link{ons_get}()}
+}
+\concept{data access}

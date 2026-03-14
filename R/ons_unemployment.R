@@ -22,6 +22,7 @@
 #' ons_unemployment(from = "2020-01-01")
 #' }
 #'
+#' @family labour market
 #' @export
 ons_unemployment <- function(from  = NULL,
                              to    = NULL,

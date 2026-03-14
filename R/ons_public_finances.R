@@ -22,6 +22,7 @@
 #' ons_public_finances(from = "2020-01-01")
 #' }
 #'
+#' @family public finances
 #' @export
 ons_public_finances <- function(from  = NULL,
                                 to    = NULL,

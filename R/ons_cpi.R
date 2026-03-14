@@ -25,6 +25,7 @@
 #' ons_cpi(from = "2020-01-01")
 #' }
 #'
+#' @family economic indicators
 #' @export
 ons_cpi <- function(measure = c("cpi", "cpih", "rpi"),
                     type    = c("rate", "index"),

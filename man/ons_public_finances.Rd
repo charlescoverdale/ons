@@ -34,3 +34,4 @@ ons_public_finances(from = "2020-01-01")
 }
 
 }
+\concept{public finances}

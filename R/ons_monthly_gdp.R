@@ -22,6 +22,7 @@
 #' ons_monthly_gdp(from = "2020-01-01")
 #' }
 #'
+#' @family economic indicators
 #' @export
 ons_monthly_gdp <- function(from  = NULL,
                             to    = NULL,

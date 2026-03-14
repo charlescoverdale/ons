@@ -30,6 +30,7 @@
 #' ons_get("IHYQ", from = "2020-01-01")
 #' }
 #'
+#' @family data access
 #' @export
 ons_get <- function(cdid,
                     from  = NULL,
