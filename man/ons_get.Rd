@@ -11,7 +11,7 @@ ons_get(cdid, from = NULL, to = NULL, cache = TRUE)
 }
 \arguments{
 \item{cdid}{Character vector. One or more ONS CDID codes (e.g. \code{"IHYQ"}
-for quarterly GDP growth).}
+for quarterly GDP growth). Maximum 50 codes per call.}
 
 \item{from}{Date or character (YYYY-MM-DD). Start date filter. Defaults to
 \code{NULL} (all available data).}

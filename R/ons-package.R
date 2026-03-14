@@ -1,4 +1,3 @@
-#' @keywords internal
 #' @concept UK economic data
 #' @concept ONS
 #' @concept Office for National Statistics

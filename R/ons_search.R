@@ -44,7 +44,15 @@ ons_search <- function(query, limit = 10L) {
   req <- httr2::request(url)
   req <- httr2::req_user_agent(req, "ons R package (https://github.com/charlescoverdale/ons)")
   req <- httr2::req_error(req, is_error = function(resp) FALSE)
-  resp <- httr2::req_perform(req)
+  resp <- tryCatch(
+    httr2::req_perform(req),
+    error = function(e) {
+      cli::cli_abort(
+        "Failed to connect to ONS Search API: {conditionMessage(e)}",
+        parent = e
+      )
+    }
+  )
 
   if (httr2::resp_status(resp) != 200L) {
     cli::cli_abort("ONS Search API returned HTTP status {httr2::resp_status(resp)}.")

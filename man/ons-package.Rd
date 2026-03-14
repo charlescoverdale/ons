@@ -32,4 +32,3 @@ Useful links:
 \concept{trade}
 \concept{unemployment}
 \concept{wages}
-\keyword{internal}

@@ -8,7 +8,7 @@
 #' \url{https://www.ons.gov.uk/timeseriestool} or by using [ons_search()].
 #'
 #' @param cdid Character vector. One or more ONS CDID codes (e.g. `"IHYQ"`
-#'   for quarterly GDP growth).
+#'   for quarterly GDP growth). Maximum 50 codes per call.
 #' @param from Date or character (YYYY-MM-DD). Start date filter. Defaults to
 #'   `NULL` (all available data).
 #' @param to Date or character (YYYY-MM-DD). End date filter. Defaults to

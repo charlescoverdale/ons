@@ -51,8 +51,22 @@ ons_search_cdid <- function(cdid) {
   )
 
   req <- httr2::request(url)
+  req <- httr2::req_user_agent(req, "ons R package (https://github.com/charlescoverdale/ons)")
+  req <- httr2::req_throttle(req, rate = 5 / 10)
+  req <- httr2::req_retry(req, max_tries = 6L, backoff = ~ 8,
+                          is_transient = function(resp) {
+                            httr2::resp_status(resp) == 429L
+                          })
   req <- httr2::req_error(req, is_error = function(resp) FALSE)
-  resp <- httr2::req_perform(req)
+  resp <- tryCatch(
+    httr2::req_perform(req),
+    error = function(e) {
+      cli::cli_abort(
+        "Failed to connect to ONS Search API: {conditionMessage(e)}",
+        parent = e
+      )
+    }
+  )
 
   if (httr2::resp_status(resp) != 200L) {
     cli::cli_abort("Search API returned status {httr2::resp_status(resp)}.")
@@ -231,8 +245,12 @@ ons_cache_dir <- function() {
 
 #' @noRd
 digest_url_ons <- function(url) {
-  hash <- sprintf("%x", sum(utf8ToInt(url)) %% .Machine$integer.max)
-  paste0("ons_", hash, ".rds")
+  chars <- utf8ToInt(url)
+  hash <- 5381
+  for (ch in chars) {
+    hash <- ((hash * 33) + ch) %% 2147483647
+  }
+  sprintf("ons_%010.0f_%d.rds", hash, nchar(url))
 }
 
 #' @noRd
@@ -253,7 +271,15 @@ download_cached_ons <- function(url, cache = TRUE) {
                             httr2::resp_status(resp) == 429L
                           })
   req <- httr2::req_error(req, is_error = function(resp) FALSE)
-  resp <- httr2::req_perform(req)
+  resp <- tryCatch(
+    httr2::req_perform(req),
+    error = function(e) {
+      cli::cli_abort(
+        "Failed to connect to ONS: {conditionMessage(e)}",
+        parent = e
+      )
+    }
+  )
 
   if (httr2::resp_status(resp) != 200L) {
     cli::cli_abort("ONS returned HTTP status {httr2::resp_status(resp)}.")

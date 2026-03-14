@@ -83,23 +83,6 @@ find_latest_hpi_url <- function(cache = TRUE) {
     "house-price-index-data/Average-prices-"
   )
 
-  # Check cache first — if we have any HPI file cached, use it
-  if (isTRUE(cache)) {
-    cache_dir <- ons_cache_dir()
-    if (dir.exists(cache_dir)) {
-      cached <- list.files(cache_dir, pattern = "^ons_.*\\.rds$",
-                           full.names = TRUE)
-      for (f in cached) {
-        content <- tryCatch(readRDS(f), error = function(e) NULL)
-        if (!is.null(content) && grepl("Region_Name", content, fixed = TRUE)) {
-          # Found a cached HPI file — reconstruct the URL from cache
-          # The cache key maps URL -> file, so this cached file is still valid
-          return(attr(f, "url") %||% find_hpi_url_by_probe(base_url))
-        }
-      }
-    }
-  }
-
   find_hpi_url_by_probe(base_url)
 }
 
