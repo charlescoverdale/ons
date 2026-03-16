@@ -1,3 +1,7 @@
+# ons 0.1.2
+
+* Removed non-existent pkgdown URL from DESCRIPTION.
+
 # ons 0.1.1
 
 * Examples now cache to `tempdir()` instead of the user's home directory,
