@@ -19,7 +19,9 @@
 #'
 #' @examples
 #' \donttest{
+#' op <- options(ons.cache_dir = tempdir())
 #' ons_population(from = "2000-01-01")
+#' options(op)
 #' }
 #'
 #' @family economic indicators

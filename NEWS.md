@@ -1,3 +1,9 @@
+# ons 0.1.1
+
+* Examples now cache to `tempdir()` instead of the user's home directory,
+  fixing CRAN policy compliance for `\donttest` examples.
+* Cache directory is now configurable via `options(ons.cache_dir = ...)`.
+
 # ons 0.1.0
 
 * Initial release.

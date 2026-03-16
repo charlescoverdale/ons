@@ -21,7 +21,9 @@ given number of days.
 }
 \examples{
 \donttest{
+op <- options(ons.cache_dir = tempdir())
 clear_cache()
+options(op)
 }
 
 }

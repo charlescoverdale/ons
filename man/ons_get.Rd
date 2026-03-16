@@ -40,7 +40,9 @@ CDID codes can be found by browsing the ONS time series explorer at
 }
 \examples{
 \donttest{
+op <- options(ons.cache_dir = tempdir())
 ons_get("IHYQ", from = "2020-01-01")
+options(op)
 }
 
 }

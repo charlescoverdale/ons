@@ -22,7 +22,9 @@
 #'
 #' @examples
 #' \donttest{
+#' op <- options(ons.cache_dir = tempdir())
 #' ons_trade(from = "2020-01-01")
+#' options(op)
 #' }
 #'
 #' @family trade and prices

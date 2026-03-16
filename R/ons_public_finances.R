@@ -19,7 +19,9 @@
 #'
 #' @examples
 #' \donttest{
+#' op <- options(ons.cache_dir = tempdir())
 #' ons_public_finances(from = "2020-01-01")
+#' options(op)
 #' }
 #'
 #' @family public finances

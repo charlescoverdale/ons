@@ -12,7 +12,9 @@
 #'
 #' @examples
 #' \donttest{
+#' op <- options(ons.cache_dir = tempdir())
 #' clear_cache()
+#' options(op)
 #' }
 #'
 #' @family data access

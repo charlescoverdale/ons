@@ -39,7 +39,9 @@ as output per hour worked or output per worker.
 }
 \examples{
 \donttest{
+op <- options(ons.cache_dir = tempdir())
 ons_productivity(from = "2020-01-01")
+options(op)
 }
 
 }

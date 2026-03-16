@@ -23,7 +23,9 @@
 #'
 #' @examples
 #' \donttest{
+#' op <- options(ons.cache_dir = tempdir())
 #' ons_wages(from = "2020-01-01")
+#' options(op)
 #' }
 #'
 #' @family labour market

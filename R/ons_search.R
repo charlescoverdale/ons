@@ -21,7 +21,9 @@
 #'
 #' @examples
 #' \donttest{
+#' op <- options(ons.cache_dir = tempdir())
 #' ons_search("GDP growth")
+#' options(op)
 #' }
 #'
 #' @family data access

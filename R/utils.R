@@ -240,7 +240,7 @@ parse_date_arg <- function(x, arg_name = "date") {
 
 #' @noRd
 ons_cache_dir <- function() {
-  tools::R_user_dir("ons", "cache")
+  getOption("ons.cache_dir", default = tools::R_user_dir("ons", "cache"))
 }
 
 #' @noRd
