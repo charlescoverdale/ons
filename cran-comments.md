@@ -1,4 +1,13 @@
-# CRAN submission comments — ons 0.1.0
+# CRAN submission comments — ons 0.1.1
+
+## Resubmission
+
+This is a resubmission of ons 0.1.0. Changes made in response to CRAN
+feedback (Prof Ripley, 2026-03-15):
+
+* Examples now cache to `tempdir()` instead of the user's home directory,
+  fixing CRAN policy compliance for `\donttest` examples.
+* Cache directory is now configurable via `options(ons.cache_dir = ...)`.
 
 ## Test environments
 
@@ -21,4 +30,5 @@ None — this is a new package with no reverse dependencies.
   `https://api.beta.ons.gov.uk/v1/search`, and HM Land Registry at
   `https://publicdata.landregistry.gov.uk` (house prices only).
 * Local caching uses `tools::R_user_dir("ons", "cache")` (base R, no
-  additional dependencies).
+  additional dependencies). In examples, caching is redirected to `tempdir()`
+  so that no files are written to the user's home filespace.
