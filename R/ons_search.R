@@ -22,7 +22,7 @@
 #' @examples
 #' \donttest{
 #' op <- options(ons.cache_dir = tempdir())
-#' ons_search("GDP growth")
+#' try(ons_search("GDP growth"))
 #' options(op)
 #' }
 #'

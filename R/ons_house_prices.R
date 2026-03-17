@@ -25,7 +25,7 @@
 #' @examples
 #' \donttest{
 #' op <- options(ons.cache_dir = tempdir())
-#' ons_house_prices(from = "2020-01-01")
+#' try(ons_house_prices(from = "2020-01-01"))
 #' options(op)
 #' }
 #'

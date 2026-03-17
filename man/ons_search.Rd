@@ -32,7 +32,7 @@ Returns CDID codes, titles, and dataset information that can be used with
 \examples{
 \donttest{
 op <- options(ons.cache_dir = tempdir())
-ons_search("GDP growth")
+try(ons_search("GDP growth"))
 options(op)
 }
 

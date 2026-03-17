@@ -1,3 +1,8 @@
+# ons 0.1.3
+
+* Examples now wrapped in `try()` to handle transient ONS API failures
+  gracefully during CRAN checks.
+
 # ons 0.1.2
 
 * Removed non-existent pkgdown URL from DESCRIPTION.

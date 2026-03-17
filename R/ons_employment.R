@@ -22,7 +22,7 @@
 #' @examples
 #' \donttest{
 #' op <- options(ons.cache_dir = tempdir())
-#' ons_employment(from = "2020-01-01")
+#' try(ons_employment(from = "2020-01-01"))
 #' options(op)
 #' }
 #'

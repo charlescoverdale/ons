@@ -40,7 +40,7 @@ or value (amount spent) indices.
 \examples{
 \donttest{
 op <- options(ons.cache_dir = tempdir())
-ons_retail_sales(from = "2020-01-01")
+try(ons_retail_sales(from = "2020-01-01"))
 options(op)
 }
 

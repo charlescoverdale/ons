@@ -32,7 +32,7 @@ from 1971.
 \examples{
 \donttest{
 op <- options(ons.cache_dir = tempdir())
-ons_inactivity(from = "2020-01-01")
+try(ons_inactivity(from = "2020-01-01"))
 options(op)
 }
 
