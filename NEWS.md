@@ -1,3 +1,8 @@
+# ons 0.1.4
+
+* Added rate limiting to `ons_search()` to match other API functions and
+  prevent accidental 429 errors.
+
 # ons 0.1.3
 
 * Examples now wrapped in `try()` to handle transient ONS API failures
