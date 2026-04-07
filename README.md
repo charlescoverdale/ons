@@ -1,6 +1,6 @@
 # ons
 
-[![CRAN status](https://www.r-pkg.org/badges/version/ons)](https://CRAN.R-project.org/package=ons) [![CRAN downloads](https://cranlogs.r-pkg.org/badges/ons)](https://cran.r-project.org/package=ons) [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![CRAN status](https://www.r-pkg.org/badges/version/ons)](https://CRAN.R-project.org/package=ons) [![CRAN downloads](https://cranlogs.r-pkg.org/badges/ons)](https://cran.r-project.org/package=ons) [![Total Downloads](https://cranlogs.r-pkg.org/badges/grand-total/ons)](https://CRAN.R-project.org/package=ons) [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 An R package for downloading data from the [Office for National Statistics](https://www.ons.gov.uk).
 
