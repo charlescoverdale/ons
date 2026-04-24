@@ -91,35 +91,16 @@ ONS. Returns annual estimates.</p>
 <span class="r-in"><span><span class="va">op</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>ons.cache_dir <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">ons_population</span><span class="op">(</span>from <span class="op">=</span> <span class="st">"2000-01-01"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Fetching population estimates</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Fetching population estimates <span style="color: #B2B2B2;">[183ms]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Waiting 10s for retry backoff <span style="color: #00BB00;">■■■■                            </span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Waiting 10s for retry backoff <span style="color: #00BB00;">■■■■■■■■■■■■■                   </span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Waiting 10s for retry backoff <span style="color: #00BB00;">■■■■■■■■■■■■■■■■■■■■■■          </span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Waiting 10s for retry backoff <span style="color: #00BB00;">■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ </span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Waiting 10s for retry backoff <span style="color: #00BB00;">■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ </span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Fetching population estimates</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Fetching population estimates <span style="color: #B2B2B2;">[10.5s]</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>          date    value</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  2000-01-01 58886100</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  2001-01-01 59113000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  2002-01-01 59365700</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  2003-01-01 59636700</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  2004-01-01 59950400</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  2005-01-01 60413300</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7  2006-01-01 60827000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8  2007-01-01 61319100</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9  2008-01-01 61823800</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10 2009-01-01 62260500</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11 2010-01-01 62759500</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12 2011-01-01 63285100</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13 2012-01-01 63710500</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14 2013-01-01 64138200</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15 2014-01-01 64618700</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16 2015-01-01 65087000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17 2016-01-01 65605800</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18 2017-01-01 65964300</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19 2018-01-01 66286700</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20 2019-01-01 66627500</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21 2020-01-01 66739900</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22 2021-01-01 66978000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23 2022-01-01 67636100</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24 2023-01-01 68526200</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25 2024-01-01 69281400</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26 2025-01-01 69487000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Error in download_cached_ons(url, cache = cache) : </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ONS returned HTTP status 429.</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span><span class="va">op</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>

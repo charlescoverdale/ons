@@ -100,16 +100,83 @@ GBP millions, current prices, seasonally adjusted.</p></dd>
 <span class="r-in"><span><span class="va">op</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>ons.cache_dir <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">ons_trade</span><span class="op">(</span>from <span class="op">=</span> <span class="st">"2020-01-01"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Fetching trade (balance)</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Waiting 10s for retry backoff <span style="color: #00BB00;">■■■■                            </span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Waiting 10s for retry backoff <span style="color: #00BB00;">■■■■■■■■■■                      </span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Waiting 10s for retry backoff <span style="color: #00BB00;">■■■■■■■■■■■■■■■■■■■             </span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Waiting 10s for retry backoff <span style="color: #00BB00;">■■■■■■■■■■■■■■■■■■■■■■■■■■■■    </span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Waiting 10s for retry backoff <span style="color: #00BB00;">■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ </span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Fetching trade (balance)</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Fetching trade (balance) <span style="color: #B2B2B2;">[10.4s]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Fetching trade (balance) <span style="color: #B2B2B2;">[262ms]</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Error in download_cached_ons(url, cache = cache) : </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   ONS returned HTTP status 429.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          date  value</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  2020-01-01   2412</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  2020-02-01  -1353</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  2020-03-01   1332</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  2020-04-01   8641</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  2020-05-01   9471</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  2020-06-01   4277</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7  2020-07-01   2050</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8  2020-08-01   1929</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9  2020-09-01  -2069</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10 2020-10-01  -1472</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11 2020-11-01  -3752</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12 2020-12-01  -5798</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13 2021-01-01  -2608</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14 2021-02-01   -654</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15 2021-03-01   3329</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16 2021-04-01   3215</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17 2021-05-01   4735</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18 2021-06-01   1301</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19 2021-07-01  -2815</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20 2021-08-01  -2544</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21 2021-09-01  -3400</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22 2021-10-01   2106</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23 2021-11-01     22</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24 2021-12-01  -1748</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25 2022-01-01 -10899</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26 2022-02-01  -7112</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27 2022-03-01  -7384</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28 2022-04-01  -5840</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29 2022-05-01  -6255</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30 2022-06-01  -6375</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31 2022-07-01  -1380</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32 2022-08-01   1478</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33 2022-09-01   4942</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34 2022-10-01   7253</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35 2022-11-01   4556</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36 2022-12-01   -731</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37 2023-01-01  -1530</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 38 2023-02-01  -1451</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39 2023-03-01  -1161</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 40 2023-04-01   -616</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 41 2023-05-01  -5454</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 42 2023-06-01  -2953</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 43 2023-07-01  -1748</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 44 2023-08-01  -3289</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 45 2023-09-01  -1628</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 46 2023-10-01  -5735</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 47 2023-11-01  -3343</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 48 2023-12-01  -3233</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 49 2024-01-01   -975</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 50 2024-02-01  -1098</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 51 2024-03-01  -2243</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 52 2024-04-01  -5056</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 53 2024-05-01  -2891</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 54 2024-06-01  -3183</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 55 2024-07-01  -1951</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 56 2024-08-01   1582</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 57 2024-09-01   1640</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 58 2024-10-01  -2507</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 59 2024-11-01  -3407</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 60 2024-12-01   -925</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 61 2025-01-01  -1530</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 62 2025-02-01  -4778</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 63 2025-03-01  -3113</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 64 2025-04-01  -3792</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 65 2025-05-01  -3254</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 66 2025-06-01  -3943</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 67 2025-07-01  -1188</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 68 2025-08-01  -1169</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 69 2025-09-01  -3478</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 70 2025-10-01  -5879</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 71 2025-11-01  -4622</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 72 2025-12-01  -1660</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 73 2026-01-01   3018</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 74 2026-02-01   -720</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span><span class="va">op</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>

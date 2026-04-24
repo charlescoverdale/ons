@@ -70,7 +70,7 @@ Other economic indicators:
 op <- options(ons.cache_dir = tempdir())
 try(ons_cpi(from = "2020-01-01"))
 #> ℹ Fetching CPI (rate)
-#> ✔ Fetching CPI (rate) [479ms]
+#> ✔ Fetching CPI (rate) [347ms]
 #> 
 #>          date value
 #> 1  2020-01-01   1.8
