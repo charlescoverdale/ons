@@ -2,6 +2,8 @@
 
 > Provides functions to download and tidy statistical data published by the 'Office for National Statistics'. Install with `install.packages("ons")`.
 
+Full API reference (for agents): https://raw.githubusercontent.com/charlescoverdale/ons/main/llms-full.txt
+
 Version: 0.1.4. License: MIT.
 
 ## Functions

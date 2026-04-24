@@ -1,0 +1,569 @@
+# ons — full API reference
+
+> Provides functions to download and tidy statistical data published by the 'Office for National Statistics'.
+
+- Version: 0.1.4
+- Install: `install.packages("ons")`
+- CRAN: https://CRAN.R-project.org/package=ons
+- GitHub: https://github.com/charlescoverdale/ons
+- Reference site: https://charlescoverdale.github.io/ons/
+
+This file is a self-contained reference for LLM agents: every exported
+function with its signature, arguments, return value, and example.
+
+---
+
+## `clear_cache()`
+
+**Clear the local download cache**
+
+Removes cached data files stored by this package. By default all cached files are deleted. Use `max_age_days` to remove only files older than a given number of days.
+
+**Usage**
+
+```r
+clear_cache(max_age_days = NULL)
+```
+
+**Arguments**
+
+- `max_age_days` — Numeric. If supplied, only files older than this many days are removed. If `NULL` (the default), all cached files are removed.
+
+**Returns**
+
+Invisibly returns `NULL`. Called for its side effect of deleting cached files.
+
+**Example**
+
+```r
+op <- options(ons.cache_dir = tempdir())
+clear_cache()
+options(op)
+```
+
+---
+
+## `ons_cpi()`
+
+**Download consumer price inflation**
+
+Downloads CPI, CPIH, or RPI data from the ONS. Returns either the annual rate of change or the index level.
+
+**Usage**
+
+```r
+ons_cpi(
+  measure = c("cpi", "cpih", "rpi"),
+  type = c("rate", "index"),
+  from = NULL,
+  to = NULL,
+  cache = TRUE
+)
+```
+
+**Arguments**
+
+- `measure` — Character. One of `"cpi"` (default), `"cpih"`, or `"rpi"`.
+- `type` — Character. One of `"rate"` (default, annual percentage change) or `"index"` (index level).
+- `from` — Date or character (YYYY-MM-DD). Start date. Defaults to `NULL` (all available data).
+- `to` — Date or character (YYYY-MM-DD). End date. Defaults to `NULL`.
+- `cache` — Logical. Use cached data if available (default `TRUE`).
+
+**Returns**
+
+A data frame with columns: dateDate. First day of the month. valueNumeric. Inflation rate (percent) or index level.
+
+**Example**
+
+```r
+op <- options(ons.cache_dir = tempdir())
+try(ons_cpi(from = "2020-01-01"))
+options(op)
+```
+
+---
+
+## `ons_employment()`
+
+**Download employment rate**
+
+Downloads the UK employment rate (aged 16 to 64, seasonally adjusted) from the ONS Labour Market Statistics. Available from 1971.
+
+**Usage**
+
+```r
+ons_employment(
+  group = c("total", "male", "female"),
+  from = NULL,
+  to = NULL,
+  cache = TRUE
+)
+```
+
+**Arguments**
+
+- `group` — Character. One of `"total"` (default), `"male"`, or `"female"`.
+- `from` — Date or character (YYYY-MM-DD). Start date. Defaults to `NULL` (all available data).
+- `to` — Date or character (YYYY-MM-DD). End date. Defaults to `NULL`.
+- `cache` — Logical. Use cached data if available (default `TRUE`).
+
+**Returns**
+
+A data frame with columns: dateDate. First day of the period. valueNumeric. Employment rate (percent).
+
+**Example**
+
+```r
+op <- options(ons.cache_dir = tempdir())
+try(ons_employment(from = "2020-01-01"))
+options(op)
+```
+
+---
+
+## `ons_gdp()`
+
+**Download GDP data**
+
+Downloads quarterly Gross Domestic Product data from the ONS. Available from 1948 (levels) or 1955 (growth rates).
+
+**Usage**
+
+```r
+ons_gdp(
+  measure = c("growth", "yoy", "level", "nominal"),
+  from = NULL,
+  to = NULL,
+  cache = TRUE
+)
+```
+
+**Arguments**
+
+- `measure` — Character. One of `"growth"` (default, quarter-on-quarter percentage change), `"yoy"` (year-on-year percentage change), `"level"` (chained volume measure in GBP millions, seasonally adjusted), or `"nominal"` (current price GBP millions, seasonally adjusted).
+- `from` — Date or character (YYYY-MM-DD). Start date. Defaults to `NULL` (all available data).
+- `to` — Date or character (YYYY-MM-DD). End date. Defaults to `NULL`.
+- `cache` — Logical. Use cached data if available (default `TRUE`).
+
+**Returns**
+
+A data frame with columns: dateDate. First day of the quarter. valueNumeric. GDP value (percent for growth measures, GBP millions for level measures).
+
+**Example**
+
+```r
+op <- options(ons.cache_dir = tempdir())
+try(ons_gdp(from = "2020-01-01"))
+options(op)
+```
+
+---
+
+## `ons_get()`
+
+**Download any ONS time series by CDID code**
+
+Fetches a time series from the ONS website using its CDID (four-character series identifier). The function uses the ONS Search API to discover the download path, then retrieves the CSV.
+
+**Usage**
+
+```r
+ons_get(cdid, from = NULL, to = NULL, cache = TRUE)
+```
+
+**Arguments**
+
+- `cdid` — Character vector. One or more ONS CDID codes (e.g. `"IHYQ"` for quarterly GDP growth). Maximum 50 codes per call.
+- `from` — Date or character (YYYY-MM-DD). Start date filter. Defaults to `NULL` (all available data).
+- `to` — Date or character (YYYY-MM-DD). End date filter. Defaults to `NULL` (up to the latest observation).
+- `cache` — Logical. Use cached data if available (default `TRUE`).
+
+**Returns**
+
+A data frame with columns: dateDate. Observation date (first day of the period). cdidCharacter. The CDID code. valueNumeric. Observation value.
+
+**Example**
+
+```r
+op <- options(ons.cache_dir = tempdir())
+try(ons_get("IHYQ", from = "2020-01-01"))
+options(op)
+```
+
+---
+
+## `ons_house_prices()`
+
+**Download UK house prices**
+
+Downloads UK average house prices from the HM Land Registry UK House Price Index. Available from 1968. Data is jointly produced by the ONS and HM Land Registry.
+
+**Usage**
+
+```r
+ons_house_prices(from = NULL, to = NULL, cache = TRUE)
+```
+
+**Arguments**
+
+- `from` — Date or character (YYYY-MM-DD). Start date. Defaults to `NULL` (all available data).
+- `to` — Date or character (YYYY-MM-DD). End date. Defaults to `NULL`.
+- `cache` — Logical. Use cached data if available (default `TRUE`).
+
+**Returns**
+
+A data frame with columns: dateDate. First day of the month. average_price_gbpNumeric. Average house price (GBP). annual_change_pctNumeric. Annual percentage change.
+
+**Example**
+
+```r
+op <- options(ons.cache_dir = tempdir())
+try(ons_house_prices(from = "2020-01-01"))
+options(op)
+```
+
+---
+
+## `ons_inactivity()`
+
+**Download economic inactivity**
+
+Downloads the number of economically inactive people (aged 16 to 64, seasonally adjusted) from the ONS Labour Market Statistics. Available from 1971.
+
+**Usage**
+
+```r
+ons_inactivity(from = NULL, to = NULL, cache = TRUE)
+```
+
+**Arguments**
+
+- `from` — Date or character (YYYY-MM-DD). Start date. Defaults to `NULL` (all available data).
+- `to` — Date or character (YYYY-MM-DD). End date. Defaults to `NULL`.
+- `cache` — Logical. Use cached data if available (default `TRUE`).
+
+**Returns**
+
+A data frame with columns: dateDate. First day of the period. valueNumeric. Economically inactive people (thousands).
+
+**Example**
+
+```r
+op <- options(ons.cache_dir = tempdir())
+try(ons_inactivity(from = "2020-01-01"))
+options(op)
+```
+
+---
+
+## `ons_monthly_gdp()`
+
+**Download monthly GDP estimate**
+
+Downloads the monthly estimate of GDP from the ONS. This is an experimental index-based estimate, available from 1997.
+
+**Usage**
+
+```r
+ons_monthly_gdp(from = NULL, to = NULL, cache = TRUE)
+```
+
+**Arguments**
+
+- `from` — Date or character (YYYY-MM-DD). Start date. Defaults to `NULL` (all available data).
+- `to` — Date or character (YYYY-MM-DD). End date. Defaults to `NULL`.
+- `cache` — Logical. Use cached data if available (default `TRUE`).
+
+**Returns**
+
+A data frame with columns: dateDate. First day of the month. valueNumeric. Monthly GDP index (2019 = 100).
+
+**Example**
+
+```r
+op <- options(ons.cache_dir = tempdir())
+try(ons_monthly_gdp(from = "2020-01-01"))
+options(op)
+```
+
+---
+
+## `ons_population()`
+
+**Download population estimates**
+
+Downloads mid-year population estimates for the United Kingdom from the ONS. Returns annual estimates.
+
+**Usage**
+
+```r
+ons_population(from = NULL, to = NULL, cache = TRUE)
+```
+
+**Arguments**
+
+- `from` — Date or character (YYYY-MM-DD). Start date. Defaults to `NULL` (all available data).
+- `to` — Date or character (YYYY-MM-DD). End date. Defaults to `NULL`.
+- `cache` — Logical. Use cached data if available (default `TRUE`).
+
+**Returns**
+
+A data frame with columns: dateDate. Mid-year date (represented as 1 January). valueNumeric. Population estimate (thousands).
+
+**Example**
+
+```r
+op <- options(ons.cache_dir = tempdir())
+try(ons_population(from = "2000-01-01"))
+options(op)
+```
+
+---
+
+## `ons_productivity()`
+
+**Download labour productivity**
+
+Downloads quarterly labour productivity data from the ONS. Available as output per hour worked or output per worker.
+
+**Usage**
+
+```r
+ons_productivity(
+  measure = c("per_hour", "per_worker"),
+  from = NULL,
+  to = NULL,
+  cache = TRUE
+)
+```
+
+**Arguments**
+
+- `measure` — Character. One of `"per_hour"` (default, output per hour worked) or `"per_worker"` (output per worker). Both are seasonally adjusted indices.
+- `from` — Date or character (YYYY-MM-DD). Start date. Defaults to `NULL` (all available data).
+- `to` — Date or character (YYYY-MM-DD). End date. Defaults to `NULL`.
+- `cache` — Logical. Use cached data if available (default `TRUE`).
+
+**Returns**
+
+A data frame with columns: dateDate. First day of the quarter. valueNumeric. Productivity index.
+
+**Example**
+
+```r
+op <- options(ons.cache_dir = tempdir())
+try(ons_productivity(from = "2020-01-01"))
+options(op)
+```
+
+---
+
+## `ons_public_finances()`
+
+**Download public sector finances**
+
+Downloads public sector net borrowing (excluding public sector banks) from the ONS. Available from 1993.
+
+**Usage**
+
+```r
+ons_public_finances(from = NULL, to = NULL, cache = TRUE)
+```
+
+**Arguments**
+
+- `from` — Date or character (YYYY-MM-DD). Start date. Defaults to `NULL` (all available data).
+- `to` — Date or character (YYYY-MM-DD). End date. Defaults to `NULL`.
+- `cache` — Logical. Use cached data if available (default `TRUE`).
+
+**Returns**
+
+A data frame with columns: dateDate. First day of the month. valueNumeric. Public sector net borrowing (GBP millions).
+
+**Example**
+
+```r
+op <- options(ons.cache_dir = tempdir())
+try(ons_public_finances(from = "2020-01-01"))
+options(op)
+```
+
+---
+
+## `ons_retail_sales()`
+
+**Download retail sales index**
+
+Downloads the Retail Sales Index from the ONS. Returns volume (quantity) or value (amount spent) indices.
+
+**Usage**
+
+```r
+ons_retail_sales(
+  type = c("volume", "value"),
+  from = NULL,
+  to = NULL,
+  cache = TRUE
+)
+```
+
+**Arguments**
+
+- `type` — Character. One of `"volume"` (default, quantity bought, seasonally adjusted) or `"value"` (amount spent, not seasonally adjusted).
+- `from` — Date or character (YYYY-MM-DD). Start date. Defaults to `NULL` (all available data).
+- `to` — Date or character (YYYY-MM-DD). End date. Defaults to `NULL`.
+- `cache` — Logical. Use cached data if available (default `TRUE`).
+
+**Returns**
+
+A data frame with columns: dateDate. First day of the month. valueNumeric. Retail sales index.
+
+**Example**
+
+```r
+op <- options(ons.cache_dir = tempdir())
+try(ons_retail_sales(from = "2020-01-01"))
+options(op)
+```
+
+---
+
+## `ons_search()`
+
+**Search for ONS time series**
+
+Searches the ONS catalogue for time series matching a keyword or phrase. Returns CDID codes, titles, and dataset information that can be used with `ons_get()`.
+
+**Usage**
+
+```r
+ons_search(query, limit = 10L)
+```
+
+**Arguments**
+
+- `query` — Character. Search term (e.g. `"GDP growth"`, `"unemployment"`).
+- `limit` — Integer. Maximum number of results to return (default 10, maximum 50).
+
+**Returns**
+
+A data frame with columns: cdidCharacter. The four-character CDID code. dataset_idCharacter. The ONS dataset identifier. titleCharacter. Description of the series. release_dateCharacter. Date of the most recent release.
+
+**Example**
+
+```r
+op <- options(ons.cache_dir = tempdir())
+try(ons_search("GDP growth"))
+options(op)
+```
+
+---
+
+## `ons_trade()`
+
+**Download UK trade data**
+
+Downloads UK trade in goods and services data from the ONS. Available from 1948.
+
+**Usage**
+
+```r
+ons_trade(
+  measure = c("balance", "exports", "imports"),
+  from = NULL,
+  to = NULL,
+  cache = TRUE
+)
+```
+
+**Arguments**
+
+- `measure` — Character. One of `"balance"` (default, trade balance), `"exports"` (total exports), or `"imports"` (total imports). All in GBP millions, current prices, seasonally adjusted.
+- `from` — Date or character (YYYY-MM-DD). Start date. Defaults to `NULL` (all available data).
+- `to` — Date or character (YYYY-MM-DD). End date. Defaults to `NULL`.
+- `cache` — Logical. Use cached data if available (default `TRUE`).
+
+**Returns**
+
+A data frame with columns: dateDate. First day of the month. valueNumeric. Trade value (GBP millions).
+
+**Example**
+
+```r
+op <- options(ons.cache_dir = tempdir())
+try(ons_trade(from = "2020-01-01"))
+options(op)
+```
+
+---
+
+## `ons_unemployment()`
+
+**Download unemployment rate**
+
+Downloads the UK unemployment rate (aged 16 and over, seasonally adjusted) from the ONS Labour Market Statistics. Available from 1971.
+
+**Usage**
+
+```r
+ons_unemployment(from = NULL, to = NULL, cache = TRUE)
+```
+
+**Arguments**
+
+- `from` — Date or character (YYYY-MM-DD). Start date. Defaults to `NULL` (all available data).
+- `to` — Date or character (YYYY-MM-DD). End date. Defaults to `NULL`.
+- `cache` — Logical. Use cached data if available (default `TRUE`).
+
+**Returns**
+
+A data frame with columns: dateDate. First day of the period. valueNumeric. Unemployment rate (percent).
+
+**Example**
+
+```r
+op <- options(ons.cache_dir = tempdir())
+try(ons_unemployment(from = "2020-01-01"))
+options(op)
+```
+
+---
+
+## `ons_wages()`
+
+**Download average weekly earnings**
+
+Downloads average weekly earnings (AWE) for the whole economy from the ONS Labour Market Statistics. Available from 2000.
+
+**Usage**
+
+```r
+ons_wages(
+  measure = c("level", "growth", "real"),
+  from = NULL,
+  to = NULL,
+  cache = TRUE
+)
+```
+
+**Arguments**
+
+- `measure` — Character. One of `"level"` (default, GBP per week), `"growth"` (year-on-year 3-month average percentage change), or `"real"` (real terms index, seasonally adjusted regular pay).
+- `from` — Date or character (YYYY-MM-DD). Start date. Defaults to `NULL` (all available data).
+- `to` — Date or character (YYYY-MM-DD). End date. Defaults to `NULL`.
+- `cache` — Logical. Use cached data if available (default `TRUE`).
+
+**Returns**
+
+A data frame with columns: dateDate. First day of the month. valueNumeric. Earnings level (GBP), growth rate (percent), or real index.
+
+**Example**
+
+```r
+op <- options(ons.cache_dir = tempdir())
+try(ons_wages(from = "2020-01-01"))
+options(op)
+```
+
+---
+
