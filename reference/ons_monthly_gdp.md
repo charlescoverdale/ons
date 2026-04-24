@@ -56,9 +56,9 @@ op <- options(ons.cache_dir = tempdir())
 try(ons_monthly_gdp(from = "2020-01-01"))
 #> ℹ Fetching monthly GDP
 #> Waiting 10s for retry backoff ■■■■                            
-#> Waiting 10s for retry backoff ■■■■■■■■■■■■                    
-#> Waiting 10s for retry backoff ■■■■■■■■■■■■■■■■■■■■■           
-#> Waiting 10s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■  
+#> Waiting 10s for retry backoff ■■■■■■■■■■■                     
+#> Waiting 10s for retry backoff ■■■■■■■■■■■■■■■■■■■■            
+#> Waiting 10s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■   
 #> Waiting 10s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 
 #> ℹ Fetching monthly GDP
 #> ✔ Fetching monthly GDP [10.5s]

@@ -54,13 +54,7 @@ Other labour market:
 op <- options(ons.cache_dir = tempdir())
 try(ons_unemployment(from = "2020-01-01"))
 #> ℹ Fetching unemployment rate
-#> Waiting 10s for retry backoff ■■■■                            
-#> Waiting 10s for retry backoff ■■■■■■■■■■                      
-#> Waiting 10s for retry backoff ■■■■■■■■■■■■■■■■■■■             
-#> Waiting 10s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■■■■    
-#> Waiting 10s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 
-#> ℹ Fetching unemployment rate
-#> ✖ Fetching unemployment rate [10.3s]
+#> ✖ Fetching unemployment rate [138ms]
 #> 
 #> Error in download_cached_ons(url, cache = cache) : 
 #>   ONS returned HTTP status 429.

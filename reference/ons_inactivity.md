@@ -55,7 +55,7 @@ Other labour market:
 op <- options(ons.cache_dir = tempdir())
 try(ons_inactivity(from = "2020-01-01"))
 #> ℹ Fetching economic inactivity
-#> ✔ Fetching economic inactivity [289ms]
+#> ✔ Fetching economic inactivity [319ms]
 #> 
 #>          date value
 #> 1  2020-01-01  8446
