@@ -51,19 +51,22 @@ A data frame with columns:
 
   Numeric. Productivity index.
 
+## See also
+
+Other economic indicators:
+[`ons_cpi()`](https://charlescoverdale.github.io/ons/reference/ons_cpi.md),
+[`ons_gdp()`](https://charlescoverdale.github.io/ons/reference/ons_gdp.md),
+[`ons_monthly_gdp()`](https://charlescoverdale.github.io/ons/reference/ons_monthly_gdp.md),
+[`ons_population()`](https://charlescoverdale.github.io/ons/reference/ons_population.md)
+
 ## Examples
 
 ``` r
 # \donttest{
-ons_productivity(from = "2020-01-01")
+op <- options(ons.cache_dir = tempdir())
+try(ons_productivity(from = "2020-01-01"))
 #> ℹ Fetching productivity (per_hour)
-#> Waiting 10s for retry backoff ■■■■                            
-#> Waiting 10s for retry backoff ■■■■■■■■■■                      
-#> Waiting 10s for retry backoff ■■■■■■■■■■■■■■■■■■■             
-#> Waiting 10s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■■■■    
-#> Waiting 10s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 
-#> ℹ Fetching productivity (per_hour)
-#> ✔ Fetching productivity (per_hour) [10.5s]
+#> ✔ Fetching productivity (per_hour) [217ms]
 #> 
 #>          date value
 #> 1  2020-01-01  97.2
@@ -89,5 +92,6 @@ ons_productivity(from = "2020-01-01")
 #> 21 2025-01-01  99.7
 #> 22 2025-04-01  99.0
 #> 23 2025-07-01  99.6
+options(op)
 # }
 ```

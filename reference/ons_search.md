@@ -45,32 +45,40 @@ A data frame with columns:
 
   Character. Date of the most recent release.
 
+## See also
+
+Other data access:
+[`clear_cache()`](https://charlescoverdale.github.io/ons/reference/clear_cache.md),
+[`ons_get()`](https://charlescoverdale.github.io/ons/reference/ons_get.md)
+
 ## Examples
 
 ``` r
 # \donttest{
-ons_search("GDP growth")
+op <- options(ons.cache_dir = tempdir())
+try(ons_search("GDP growth"))
 #>    cdid dataset_id                                         title
 #> 1  KB82        PN2                 Revisions to GDP CVM growth %
 #> 2  KB82        QNA                 Revisions to GDP CVM growth %
-#> 3  MNF4        PN2 GDP Deflator: Quarter on quarter growth: SA %
-#> 4  IHYS        QNA       GDP Deflator: Year on Year growth: SA %
-#> 5  IHYS       UKEA       GDP Deflator: Year on Year growth: SA %
-#> 6  IHYT        QNA GDP Deflator: Quarter on quarter growth: SA %
+#> 3  IHYT        QNA GDP Deflator: Quarter on quarter growth: SA %
+#> 4  IHYS       UKEA       GDP Deflator: Year on Year growth: SA %
+#> 5  IHYS        QNA       GDP Deflator: Year on Year growth: SA %
+#> 6  MNF4        PN2 GDP Deflator: Quarter on quarter growth: SA %
 #> 7  MNF3        QNA       GDP Deflator: Year on Year growth: SA %
-#> 8  IHYT        PN2 GDP Deflator: Quarter on quarter growth: SA %
-#> 9  MNF4        QNA GDP Deflator: Quarter on quarter growth: SA %
-#> 10 MNF3        PN2       GDP Deflator: Year on Year growth: SA %
+#> 8  MNF4        QNA GDP Deflator: Quarter on quarter growth: SA %
+#> 9  IHYT        PN2 GDP Deflator: Quarter on quarter growth: SA %
+#> 10 IHYT       UKEA GDP Deflator: Quarter on quarter growth: SA %
 #>                release_date
 #> 1  2026-02-12T00:00:00.000Z
-#> 2  2025-12-22T00:00:00.000Z
-#> 3  2026-02-12T00:00:00.000Z
-#> 4  2025-12-22T00:00:00.000Z
-#> 5  2025-12-22T00:00:00.000Z
-#> 6  2025-12-22T00:00:00.000Z
-#> 7  2025-12-22T00:00:00.000Z
-#> 8  2026-02-12T00:00:00.000Z
-#> 9  2025-12-22T00:00:00.000Z
-#> 10 2026-02-12T00:00:00.000Z
+#> 2  2026-03-30T23:00:00.000Z
+#> 3  2026-03-30T23:00:00.000Z
+#> 4  2026-03-30T23:00:00.000Z
+#> 5  2026-03-30T23:00:00.000Z
+#> 6  2026-02-12T00:00:00.000Z
+#> 7  2026-03-30T23:00:00.000Z
+#> 8  2026-03-30T23:00:00.000Z
+#> 9  2026-02-12T00:00:00.000Z
+#> 10 2026-03-30T23:00:00.000Z
+options(op)
 # }
 ```

@@ -55,13 +55,22 @@ A data frame with columns:
 
   Numeric. Inflation rate (percent) or index level.
 
+## See also
+
+Other economic indicators:
+[`ons_gdp()`](https://charlescoverdale.github.io/ons/reference/ons_gdp.md),
+[`ons_monthly_gdp()`](https://charlescoverdale.github.io/ons/reference/ons_monthly_gdp.md),
+[`ons_population()`](https://charlescoverdale.github.io/ons/reference/ons_population.md),
+[`ons_productivity()`](https://charlescoverdale.github.io/ons/reference/ons_productivity.md)
+
 ## Examples
 
 ``` r
 # \donttest{
-ons_cpi(from = "2020-01-01")
+op <- options(ons.cache_dir = tempdir())
+try(ons_cpi(from = "2020-01-01"))
 #> ℹ Fetching CPI (rate)
-#> ✔ Fetching CPI (rate) [351ms]
+#> ✔ Fetching CPI (rate) [400ms]
 #> 
 #>          date value
 #> 1  2020-01-01   1.8
@@ -137,5 +146,8 @@ ons_cpi(from = "2020-01-01")
 #> 71 2025-11-01   3.2
 #> 72 2025-12-01   3.4
 #> 73 2026-01-01   3.0
+#> 74 2026-02-01   3.0
+#> 75 2026-03-01   3.3
+options(op)
 # }
 ```

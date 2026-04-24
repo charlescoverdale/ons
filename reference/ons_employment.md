@@ -49,13 +49,21 @@ A data frame with columns:
 
   Numeric. Employment rate (percent).
 
+## See also
+
+Other labour market:
+[`ons_inactivity()`](https://charlescoverdale.github.io/ons/reference/ons_inactivity.md),
+[`ons_unemployment()`](https://charlescoverdale.github.io/ons/reference/ons_unemployment.md),
+[`ons_wages()`](https://charlescoverdale.github.io/ons/reference/ons_wages.md)
+
 ## Examples
 
 ``` r
 # \donttest{
-ons_employment(from = "2020-01-01")
+op <- options(ons.cache_dir = tempdir())
+try(ons_employment(from = "2020-01-01"))
 #> ℹ Fetching employment rate (total)
-#> ✔ Fetching employment rate (total) [148ms]
+#> ✔ Fetching employment rate (total) [308ms]
 #> 
 #>          date value
 #> 1  2020-01-01  76.5
@@ -129,5 +137,8 @@ ons_employment(from = "2020-01-01")
 #> 69 2025-09-01  74.9
 #> 70 2025-10-01  75.1
 #> 71 2025-11-01  75.0
+#> 72 2025-12-01  75.1
+#> 73 2026-01-01  75.0
+options(op)
 # }
 ```

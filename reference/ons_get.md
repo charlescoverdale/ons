@@ -19,7 +19,7 @@ ons_get(cdid, from = NULL, to = NULL, cache = TRUE)
 - cdid:
 
   Character vector. One or more ONS CDID codes (e.g. `"IHYQ"` for
-  quarterly GDP growth).
+  quarterly GDP growth). Maximum 50 codes per call.
 
 - from:
 
@@ -57,13 +57,20 @@ CDID codes can be found by browsing the ONS time series explorer at
 <https://www.ons.gov.uk/timeseriestool> or by using
 [`ons_search()`](https://charlescoverdale.github.io/ons/reference/ons_search.md).
 
+## See also
+
+Other data access:
+[`clear_cache()`](https://charlescoverdale.github.io/ons/reference/clear_cache.md),
+[`ons_search()`](https://charlescoverdale.github.io/ons/reference/ons_search.md)
+
 ## Examples
 
 ``` r
 # \donttest{
-ons_get("IHYQ", from = "2020-01-01")
+op <- options(ons.cache_dir = tempdir())
+try(ons_get("IHYQ", from = "2020-01-01"))
 #> ℹ Fetching "IHYQ"
-#> ✔ Fetching "IHYQ" [737ms]
+#> ✔ Fetching "IHYQ" [709ms]
 #> 
 #>          date cdid value
 #> 1  2020-01-01 IHYQ  -2.7
@@ -90,5 +97,6 @@ ons_get("IHYQ", from = "2020-01-01")
 #> 22 2025-04-01 IHYQ   0.2
 #> 23 2025-07-01 IHYQ   0.1
 #> 24 2025-10-01 IHYQ   0.1
+options(op)
 # }
 ```

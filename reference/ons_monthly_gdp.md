@@ -40,13 +40,28 @@ A data frame with columns:
 
   Numeric. Monthly GDP index (2019 = 100).
 
+## See also
+
+Other economic indicators:
+[`ons_cpi()`](https://charlescoverdale.github.io/ons/reference/ons_cpi.md),
+[`ons_gdp()`](https://charlescoverdale.github.io/ons/reference/ons_gdp.md),
+[`ons_population()`](https://charlescoverdale.github.io/ons/reference/ons_population.md),
+[`ons_productivity()`](https://charlescoverdale.github.io/ons/reference/ons_productivity.md)
+
 ## Examples
 
 ``` r
 # \donttest{
-ons_monthly_gdp(from = "2020-01-01")
+op <- options(ons.cache_dir = tempdir())
+try(ons_monthly_gdp(from = "2020-01-01"))
 #> ℹ Fetching monthly GDP
-#> ✔ Fetching monthly GDP [83ms]
+#> Waiting 10s for retry backoff ■■■■                            
+#> Waiting 10s for retry backoff ■■■■■■■■■■■■                    
+#> Waiting 10s for retry backoff ■■■■■■■■■■■■■■■■■■■■■           
+#> Waiting 10s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■  
+#> Waiting 10s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 
+#> ℹ Fetching monthly GDP
+#> ✔ Fetching monthly GDP [10.5s]
 #> 
 #>          date value
 #> 1  2020-01-01  97.3
@@ -99,28 +114,30 @@ ons_monthly_gdp(from = "2020-01-01")
 #> 48 2023-12-01  99.6
 #> 49 2024-01-01 100.1
 #> 50 2024-02-01 100.3
-#> 51 2024-03-01 100.8
-#> 52 2024-04-01 100.8
-#> 53 2024-05-01 101.2
-#> 54 2024-06-01 101.0
-#> 55 2024-07-01 101.0
-#> 56 2024-08-01 101.3
-#> 57 2024-09-01 101.2
-#> 58 2024-10-01 101.3
+#> 51 2024-03-01 100.6
+#> 52 2024-04-01 100.7
+#> 53 2024-05-01 101.1
+#> 54 2024-06-01 100.9
+#> 55 2024-07-01 100.8
+#> 56 2024-08-01 101.1
+#> 57 2024-09-01 101.1
+#> 58 2024-10-01 101.2
 #> 59 2024-11-01 101.3
-#> 60 2024-12-01 101.8
-#> 61 2025-01-01 101.8
-#> 62 2025-02-01 102.2
-#> 63 2025-03-01 102.5
-#> 64 2025-04-01 102.3
-#> 65 2025-05-01 102.2
-#> 66 2025-06-01 102.6
-#> 67 2025-07-01 102.5
-#> 68 2025-08-01 102.3
-#> 69 2025-09-01 102.4
-#> 70 2025-10-01 102.3
-#> 71 2025-11-01 102.5
-#> 72 2025-12-01 102.6
-#> 73 2026-01-01 102.6
+#> 60 2024-12-01 101.7
+#> 61 2025-01-01 101.7
+#> 62 2025-02-01 101.9
+#> 63 2025-03-01 102.2
+#> 64 2025-04-01 102.1
+#> 65 2025-05-01 101.9
+#> 66 2025-06-01 102.4
+#> 67 2025-07-01 102.3
+#> 68 2025-08-01 102.1
+#> 69 2025-09-01 102.1
+#> 70 2025-10-01 102.0
+#> 71 2025-11-01 102.2
+#> 72 2025-12-01 102.3
+#> 73 2026-01-01 102.5
+#> 74 2026-02-01 103.0
+options(op)
 # }
 ```

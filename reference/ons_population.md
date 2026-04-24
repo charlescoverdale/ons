@@ -40,13 +40,22 @@ A data frame with columns:
 
   Numeric. Population estimate (thousands).
 
+## See also
+
+Other economic indicators:
+[`ons_cpi()`](https://charlescoverdale.github.io/ons/reference/ons_cpi.md),
+[`ons_gdp()`](https://charlescoverdale.github.io/ons/reference/ons_gdp.md),
+[`ons_monthly_gdp()`](https://charlescoverdale.github.io/ons/reference/ons_monthly_gdp.md),
+[`ons_productivity()`](https://charlescoverdale.github.io/ons/reference/ons_productivity.md)
+
 ## Examples
 
 ``` r
 # \donttest{
-ons_population(from = "2000-01-01")
+op <- options(ons.cache_dir = tempdir())
+try(ons_population(from = "2000-01-01"))
 #> ℹ Fetching population estimates
-#> ✔ Fetching population estimates [32ms]
+#> ✔ Fetching population estimates [169ms]
 #> 
 #>          date    value
 #> 1  2000-01-01 58886100
@@ -75,5 +84,6 @@ ons_population(from = "2000-01-01")
 #> 24 2023-01-01 68526200
 #> 25 2024-01-01 69281400
 #> 26 2025-01-01 69487000
+options(op)
 # }
 ```

@@ -11,7 +11,7 @@ ons_get()."></head><body>
 
     <a class="navbar-brand me-2" href="../index.html">ons</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.4</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -81,33 +81,41 @@ maximum 50).</p></dd>
 
 
 </dl></div>
+    <div class="section level2">
+    <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
+    <div class="dont-index"><p>Other data access:
+<code><a href="clear_cache.html">clear_cache()</a></code>,
+<code><a href="ons_get.html">ons_get()</a></code></p></div>
+    </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
-<span class="r-in"><span><span class="fu">ons_search</span><span class="op">(</span><span class="st">"GDP growth"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">op</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>ons.cache_dir <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">ons_search</span><span class="op">(</span><span class="st">"GDP growth"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    cdid dataset_id                                         title</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1  KB82        PN2                 Revisions to GDP CVM growth %</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2  KB82        QNA                 Revisions to GDP CVM growth %</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  MNF4        PN2 GDP Deflator: Quarter on quarter growth: SA %</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  IHYS        QNA       GDP Deflator: Year on Year growth: SA %</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  IHYS       UKEA       GDP Deflator: Year on Year growth: SA %</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  IHYT        QNA GDP Deflator: Quarter on quarter growth: SA %</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  IHYT        QNA GDP Deflator: Quarter on quarter growth: SA %</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  IHYS       UKEA       GDP Deflator: Year on Year growth: SA %</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  IHYS        QNA       GDP Deflator: Year on Year growth: SA %</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  MNF4        PN2 GDP Deflator: Quarter on quarter growth: SA %</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 7  MNF3        QNA       GDP Deflator: Year on Year growth: SA %</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8  IHYT        PN2 GDP Deflator: Quarter on quarter growth: SA %</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9  MNF4        QNA GDP Deflator: Quarter on quarter growth: SA %</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10 MNF3        PN2       GDP Deflator: Year on Year growth: SA %</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8  MNF4        QNA GDP Deflator: Quarter on quarter growth: SA %</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9  IHYT        PN2 GDP Deflator: Quarter on quarter growth: SA %</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10 IHYT       UKEA GDP Deflator: Quarter on quarter growth: SA %</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                release_date</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1  2026-02-12T00:00:00.000Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  2025-12-22T00:00:00.000Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  2026-02-12T00:00:00.000Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  2025-12-22T00:00:00.000Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  2025-12-22T00:00:00.000Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  2025-12-22T00:00:00.000Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7  2025-12-22T00:00:00.000Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8  2026-02-12T00:00:00.000Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9  2025-12-22T00:00:00.000Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10 2026-02-12T00:00:00.000Z</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  2026-03-30T23:00:00.000Z</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  2026-03-30T23:00:00.000Z</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  2026-03-30T23:00:00.000Z</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  2026-03-30T23:00:00.000Z</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  2026-02-12T00:00:00.000Z</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7  2026-03-30T23:00:00.000Z</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8  2026-03-30T23:00:00.000Z</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9  2026-02-12T00:00:00.000Z</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10 2026-03-30T23:00:00.000Z</span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span><span class="va">op</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>

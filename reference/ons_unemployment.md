@@ -40,14 +40,30 @@ A data frame with columns:
 
   Numeric. Unemployment rate (percent).
 
+## See also
+
+Other labour market:
+[`ons_employment()`](https://charlescoverdale.github.io/ons/reference/ons_employment.md),
+[`ons_inactivity()`](https://charlescoverdale.github.io/ons/reference/ons_inactivity.md),
+[`ons_wages()`](https://charlescoverdale.github.io/ons/reference/ons_wages.md)
+
 ## Examples
 
 ``` r
 # \donttest{
-ons_unemployment(from = "2020-01-01")
+op <- options(ons.cache_dir = tempdir())
+try(ons_unemployment(from = "2020-01-01"))
 #> ℹ Fetching unemployment rate
-#> Error in download_cached_ons(url, cache = cache): ONS returned HTTP status 429.
-#> ✖ Fetching unemployment rate [107ms]
+#> Waiting 10s for retry backoff ■■■■                            
+#> Waiting 10s for retry backoff ■■■■■■■■■■                      
+#> Waiting 10s for retry backoff ■■■■■■■■■■■■■■■■■■■             
+#> Waiting 10s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■■■■    
+#> Waiting 10s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 
+#> ℹ Fetching unemployment rate
+#> ✖ Fetching unemployment rate [10.3s]
 #> 
+#> Error in download_cached_ons(url, cache = cache) : 
+#>   ONS returned HTTP status 429.
+options(op)
 # }
 ```

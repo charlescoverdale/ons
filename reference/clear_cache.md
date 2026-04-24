@@ -22,11 +22,21 @@ clear_cache(max_age_days = NULL)
 Invisibly returns `NULL`. Called for its side effect of deleting cached
 files.
 
+## See also
+
+Other data access:
+[`ons_get()`](https://charlescoverdale.github.io/ons/reference/ons_get.md),
+[`ons_search()`](https://charlescoverdale.github.io/ons/reference/ons_search.md)
+
 ## Examples
 
 ``` r
 # \donttest{
+op <- options(ons.cache_dir = tempdir())
 clear_cache()
-#> ℹ No cache directory found.
+#> Warning: cannot remove file '/tmp/RtmpOwOkOp/bslib-246362e7e3ff6191071d5f9b40ba8d62', reason 'Directory not empty'
+#> Warning: cannot remove file '/tmp/RtmpOwOkOp/downlit', reason 'Directory not empty'
+#> ✔ Removed 2 cached files.
+options(op)
 # }
 ```

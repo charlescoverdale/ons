@@ -50,13 +50,20 @@ A data frame with columns:
 The function automatically finds the latest available monthly file from
 HM Land Registry, working backwards from the current month.
 
+## See also
+
+Other trade and prices:
+[`ons_retail_sales()`](https://charlescoverdale.github.io/ons/reference/ons_retail_sales.md),
+[`ons_trade()`](https://charlescoverdale.github.io/ons/reference/ons_trade.md)
+
 ## Examples
 
 ``` r
 # \donttest{
-ons_house_prices(from = "2020-01-01")
+op <- options(ons.cache_dir = tempdir())
+try(ons_house_prices(from = "2020-01-01"))
 #> ℹ Fetching house prices
-#> ✔ Fetching house prices [1.9s]
+#> ✔ Fetching house prices [1.4s]
 #> 
 #>          date average_price_gbp annual_change_pct
 #> 1  2020-01-01            213657               1.6
@@ -120,16 +127,19 @@ ons_house_prices(from = "2020-01-01")
 #> 59 2024-11-01            264515               2.4
 #> 60 2024-12-01            263991               3.1
 #> 61 2025-01-01            264936               3.5
-#> 62 2025-02-01            264909               4.0
-#> 63 2025-03-01            268508               5.3
-#> 64 2025-04-01            261258               1.9
-#> 65 2025-05-01            264782               2.4
-#> 66 2025-06-01            267985               3.2
-#> 67 2025-07-01            270432               3.0
-#> 68 2025-08-01            271808               2.5
-#> 69 2025-09-01            270827               2.3
-#> 70 2025-10-01            270548               2.0
-#> 71 2025-11-01            272043               2.8
-#> 72 2025-12-01            270259               2.4
+#> 62 2025-02-01            264771               4.0
+#> 63 2025-03-01            268205               5.1
+#> 64 2025-04-01            260615               1.6
+#> 65 2025-05-01            263981               2.1
+#> 66 2025-06-01            267004               2.9
+#> 67 2025-07-01            269373               2.6
+#> 68 2025-08-01            271690               2.5
+#> 69 2025-09-01            270774               2.3
+#> 70 2025-10-01            271932               2.5
+#> 71 2025-11-01            272390               3.0
+#> 72 2025-12-01            269112               1.9
+#> 73 2026-01-01            267653               1.0
+#> 74 2026-02-01            267957               1.2
+options(op)
 # }
 ```

@@ -41,13 +41,21 @@ A data frame with columns:
 
   Numeric. Economically inactive people (thousands).
 
+## See also
+
+Other labour market:
+[`ons_employment()`](https://charlescoverdale.github.io/ons/reference/ons_employment.md),
+[`ons_unemployment()`](https://charlescoverdale.github.io/ons/reference/ons_unemployment.md),
+[`ons_wages()`](https://charlescoverdale.github.io/ons/reference/ons_wages.md)
+
 ## Examples
 
 ``` r
 # \donttest{
-ons_inactivity(from = "2020-01-01")
+op <- options(ons.cache_dir = tempdir())
+try(ons_inactivity(from = "2020-01-01"))
 #> ℹ Fetching economic inactivity
-#> ✔ Fetching economic inactivity [141ms]
+#> ✔ Fetching economic inactivity [289ms]
 #> 
 #>          date value
 #> 1  2020-01-01  8446
@@ -121,5 +129,8 @@ ons_inactivity(from = "2020-01-01")
 #> 69 2025-09-01  9099
 #> 70 2025-10-01  9021
 #> 71 2025-11-01  9042
+#> 72 2025-12-01  8999
+#> 73 2026-01-01  9116
+options(op)
 # }
 ```

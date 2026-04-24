@@ -11,7 +11,7 @@ and HM Land Registry."></head><body>
 
     <a class="navbar-brand me-2" href="../index.html">ons</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.4</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -87,13 +87,20 @@ and HM Land Registry.</p>
     <p>The function automatically finds the latest available monthly file from
 HM Land Registry, working backwards from the current month.</p>
     </div>
+    <div class="section level2">
+    <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
+    <div class="dont-index"><p>Other trade and prices:
+<code><a href="ons_retail_sales.html">ons_retail_sales()</a></code>,
+<code><a href="ons_trade.html">ons_trade()</a></code></p></div>
+    </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
-<span class="r-in"><span><span class="fu">ons_house_prices</span><span class="op">(</span>from <span class="op">=</span> <span class="st">"2020-01-01"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">op</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>ons.cache_dir <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">ons_house_prices</span><span class="op">(</span>from <span class="op">=</span> <span class="st">"2020-01-01"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Fetching house prices</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Fetching house prices <span style="color: #B2B2B2;">[1.9s]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Fetching house prices <span style="color: #B2B2B2;">[1.4s]</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>          date average_price_gbp annual_change_pct</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1  2020-01-01            213657               1.6</span>
@@ -157,17 +164,20 @@ HM Land Registry, working backwards from the current month.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 59 2024-11-01            264515               2.4</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 60 2024-12-01            263991               3.1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 61 2025-01-01            264936               3.5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 62 2025-02-01            264909               4.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 63 2025-03-01            268508               5.3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 64 2025-04-01            261258               1.9</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 65 2025-05-01            264782               2.4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 66 2025-06-01            267985               3.2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 67 2025-07-01            270432               3.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 68 2025-08-01            271808               2.5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 69 2025-09-01            270827               2.3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 70 2025-10-01            270548               2.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 71 2025-11-01            272043               2.8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 72 2025-12-01            270259               2.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 62 2025-02-01            264771               4.0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 63 2025-03-01            268205               5.1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 64 2025-04-01            260615               1.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 65 2025-05-01            263981               2.1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 66 2025-06-01            267004               2.9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 67 2025-07-01            269373               2.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 68 2025-08-01            271690               2.5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 69 2025-09-01            270774               2.3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 70 2025-10-01            271932               2.5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 71 2025-11-01            272390               3.0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 72 2025-12-01            269112               1.9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 73 2026-01-01            267653               1.0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 74 2026-02-01            267957               1.2</span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span><span class="va">op</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>

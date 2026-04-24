@@ -61,3 +61,9 @@ Cache management
 
 - [`clear_cache()`](https://charlescoverdale.github.io/ons/reference/clear_cache.md)
   : Clear the local download cache
+
+## Package
+
+- [`ons`](https://charlescoverdale.github.io/ons/reference/ons-package.md)
+  [`ons-package`](https://charlescoverdale.github.io/ons/reference/ons-package.md)
+  : ons: Download Data from the 'Office for National Statistics'

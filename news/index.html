@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">ons</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.4</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,6 +33,23 @@
     </div>
 
     <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.1.4" id="ons-014">ons 0.1.4<a class="anchor" aria-label="anchor" href="#ons-014"></a></h2>
+<ul><li>Added rate limiting to <code><a href="../reference/ons_search.html">ons_search()</a></code> to match other API functions and prevent accidental 429 errors.</li>
+</ul></div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.1.3" id="ons-013">ons 0.1.3<a class="anchor" aria-label="anchor" href="#ons-013"></a></h2><p class="text-muted">CRAN release: 2026-03-18</p>
+<ul><li>Examples now wrapped in <code><a href="https://rdrr.io/r/base/try.html" class="external-link">try()</a></code> to handle transient ONS API failures gracefully during CRAN checks.</li>
+</ul></div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.1.2" id="ons-012">ons 0.1.2<a class="anchor" aria-label="anchor" href="#ons-012"></a></h2>
+<ul><li>Removed non-existent pkgdown URL from DESCRIPTION.</li>
+</ul></div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.1.1" id="ons-011">ons 0.1.1<a class="anchor" aria-label="anchor" href="#ons-011"></a></h2>
+<ul><li>Examples now cache to <code><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir()</a></code> instead of the user’s home directory, fixing CRAN policy compliance for <code>\donttest</code> examples.</li>
+<li>Cache directory is now configurable via <code>options(ons.cache_dir = ...)</code>.</li>
+</ul></div>
+    <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.1.0" id="ons-010">ons 0.1.0<a class="anchor" aria-label="anchor" href="#ons-010"></a></h2><p class="text-muted">CRAN release: 2026-03-12</p>
 <ul><li>Initial release.</li>
 <li>Data functions: <code><a href="../reference/ons_gdp.html">ons_gdp()</a></code>, <code><a href="../reference/ons_monthly_gdp.html">ons_monthly_gdp()</a></code>, <code><a href="../reference/ons_cpi.html">ons_cpi()</a></code>, <code><a href="../reference/ons_unemployment.html">ons_unemployment()</a></code>, <code><a href="../reference/ons_employment.html">ons_employment()</a></code>, <code><a href="../reference/ons_inactivity.html">ons_inactivity()</a></code>, <code><a href="../reference/ons_wages.html">ons_wages()</a></code>, <code><a href="../reference/ons_trade.html">ons_trade()</a></code>, <code><a href="../reference/ons_retail_sales.html">ons_retail_sales()</a></code>, <code><a href="../reference/ons_house_prices.html">ons_house_prices()</a></code>, <code><a href="../reference/ons_productivity.html">ons_productivity()</a></code>, <code><a href="../reference/ons_population.html">ons_population()</a></code>, <code><a href="../reference/ons_public_finances.html">ons_public_finances()</a></code>.</li>
@@ -40,7 +57,8 @@
 <li>Discovery: <code><a href="../reference/ons_search.html">ons_search()</a></code> searches the ONS catalogue by keyword.</li>
 <li>Caching: <code><a href="../reference/clear_cache.html">clear_cache()</a></code> manages locally cached data.</li>
 </ul></div>
-  </main></div>
+  </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
+    </nav></aside></div>
 
 
     <footer><div class="pkgdown-footer-left">

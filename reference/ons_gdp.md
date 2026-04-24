@@ -53,13 +53,22 @@ A data frame with columns:
   Numeric. GDP value (percent for growth measures, GBP millions for
   level measures).
 
+## See also
+
+Other economic indicators:
+[`ons_cpi()`](https://charlescoverdale.github.io/ons/reference/ons_cpi.md),
+[`ons_monthly_gdp()`](https://charlescoverdale.github.io/ons/reference/ons_monthly_gdp.md),
+[`ons_population()`](https://charlescoverdale.github.io/ons/reference/ons_population.md),
+[`ons_productivity()`](https://charlescoverdale.github.io/ons/reference/ons_productivity.md)
+
 ## Examples
 
 ``` r
 # \donttest{
-ons_gdp(from = "2020-01-01")
+op <- options(ons.cache_dir = tempdir())
+try(ons_gdp(from = "2020-01-01"))
 #> ℹ Fetching GDP (growth)
-#> ✔ Fetching GDP (growth) [95ms]
+#> ✔ Fetching GDP (growth) [185ms]
 #> 
 #>          date value
 #> 1  2020-01-01  -2.7
@@ -86,5 +95,6 @@ ons_gdp(from = "2020-01-01")
 #> 22 2025-04-01   0.2
 #> 23 2025-07-01   0.1
 #> 24 2025-10-01   0.1
+options(op)
 # }
 ```

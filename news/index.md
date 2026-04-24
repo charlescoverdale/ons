@@ -1,5 +1,31 @@
 # Changelog
 
+## ons 0.1.4
+
+- Added rate limiting to
+  [`ons_search()`](https://charlescoverdale.github.io/ons/reference/ons_search.md)
+  to match other API functions and prevent accidental 429 errors.
+
+## ons 0.1.3
+
+CRAN release: 2026-03-18
+
+- Examples now wrapped in [`try()`](https://rdrr.io/r/base/try.html) to
+  handle transient ONS API failures gracefully during CRAN checks.
+
+## ons 0.1.2
+
+- Removed non-existent pkgdown URL from DESCRIPTION.
+
+## ons 0.1.1
+
+- Examples now cache to
+  [`tempdir()`](https://rdrr.io/r/base/tempfile.html) instead of the
+  user’s home directory, fixing CRAN policy compliance for `\donttest`
+  examples.
+- Cache directory is now configurable via
+  `options(ons.cache_dir = ...)`.
+
 ## ons 0.1.0
 
 CRAN release: 2026-03-12
