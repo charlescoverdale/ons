@@ -1,0 +1,31 @@
+# ons
+
+> Provides functions to download and tidy statistical data published by the 'Office for National Statistics'. Install with `install.packages("ons")`.
+
+Version: 0.1.4. License: MIT.
+
+## Functions
+
+- [`clear_cache()`](https://charlescoverdale.github.io/ons/reference/clear_cache.html): Clear the local download cache
+- [`ons_cpi()`](https://charlescoverdale.github.io/ons/reference/ons_cpi.html): Download consumer price inflation
+- [`ons_employment()`](https://charlescoverdale.github.io/ons/reference/ons_employment.html): Download employment rate
+- [`ons_gdp()`](https://charlescoverdale.github.io/ons/reference/ons_gdp.html): Download GDP data
+- [`ons_get()`](https://charlescoverdale.github.io/ons/reference/ons_get.html): Download any ONS time series by CDID code
+- [`ons_house_prices()`](https://charlescoverdale.github.io/ons/reference/ons_house_prices.html): Download UK house prices
+- [`ons_inactivity()`](https://charlescoverdale.github.io/ons/reference/ons_inactivity.html): Download economic inactivity
+- [`ons_monthly_gdp()`](https://charlescoverdale.github.io/ons/reference/ons_monthly_gdp.html): Download monthly GDP estimate
+- [`ons_population()`](https://charlescoverdale.github.io/ons/reference/ons_population.html): Download population estimates
+- [`ons_productivity()`](https://charlescoverdale.github.io/ons/reference/ons_productivity.html): Download labour productivity
+- [`ons_public_finances()`](https://charlescoverdale.github.io/ons/reference/ons_public_finances.html): Download public sector finances
+- [`ons_retail_sales()`](https://charlescoverdale.github.io/ons/reference/ons_retail_sales.html): Download retail sales index
+- [`ons_search()`](https://charlescoverdale.github.io/ons/reference/ons_search.html): Search for ONS time series
+- [`ons_trade()`](https://charlescoverdale.github.io/ons/reference/ons_trade.html): Download UK trade data
+- [`ons_unemployment()`](https://charlescoverdale.github.io/ons/reference/ons_unemployment.html): Download unemployment rate
+- [`ons_wages()`](https://charlescoverdale.github.io/ons/reference/ons_wages.html): Download average weekly earnings
+
+## Documentation
+
+- [Full reference](https://charlescoverdale.github.io/ons/reference/)
+- [GitHub](https://github.com/charlescoverdale/ons)
+- [CRAN](https://CRAN.R-project.org/package=ons)
+
