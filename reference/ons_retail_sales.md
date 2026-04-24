@@ -63,7 +63,7 @@ Other trade and prices:
 op <- options(ons.cache_dir = tempdir())
 try(ons_retail_sales(from = "2020-01-01"))
 #> ℹ Fetching retail sales (volume)
-#> ✔ Fetching retail sales (volume) [287ms]
+#> ✔ Fetching retail sales (volume) [106ms]
 #> 
 #>          date value
 #> 1  2020-01-01 104.3

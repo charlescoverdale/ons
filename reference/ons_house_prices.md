@@ -63,7 +63,7 @@ Other trade and prices:
 op <- options(ons.cache_dir = tempdir())
 try(ons_house_prices(from = "2020-01-01"))
 #> ℹ Fetching house prices
-#> ✔ Fetching house prices [1.7s]
+#> ✔ Fetching house prices [1.4s]
 #> 
 #>          date average_price_gbp annual_change_pct
 #> 1  2020-01-01            213657               1.6
