@@ -64,7 +64,7 @@ Other trade and prices:
 op <- options(ons.cache_dir = tempdir())
 try(ons_trade(from = "2020-01-01"))
 #> ℹ Fetching trade (balance)
-#> ✔ Fetching trade (balance) [169ms]
+#> ✔ Fetching trade (balance) [279ms]
 #> 
 #>          date  value
 #> 1  2020-01-01   2412

@@ -47,7 +47,7 @@ A data frame with columns:
 op <- options(ons.cache_dir = tempdir())
 try(ons_public_finances(from = "2020-01-01"))
 #> ℹ Fetching public sector net borrowing
-#> ✔ Fetching public sector net borrowing [207ms]
+#> ✔ Fetching public sector net borrowing [267ms]
 #> 
 #>          date  value
 #> 1  2020-01-01  -8196

@@ -65,7 +65,12 @@ Other labour market:
 op <- options(ons.cache_dir = tempdir())
 try(ons_wages(from = "2020-01-01"))
 #> ℹ Fetching average weekly earnings (level)
-#> ✔ Fetching average weekly earnings (level) [239ms]
+#> Waiting 10s for retry backoff ■■■■■                           
+#> Waiting 10s for retry backoff ■■■■■■■■■■■■■■                  
+#> Waiting 10s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■         
+#> Waiting 10s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 
+#> ℹ Fetching average weekly earnings (level)
+#> ✔ Fetching average weekly earnings (level) [10.5s]
 #> 
 #>          date value
 #> 1  2020-01-01   546
