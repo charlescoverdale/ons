@@ -66,7 +66,7 @@ Other economic indicators:
 op <- options(ons.cache_dir = tempdir())
 try(ons_productivity(from = "2020-01-01"))
 #> ℹ Fetching productivity (per_hour)
-#> ✔ Fetching productivity (per_hour) [201ms]
+#> ✔ Fetching productivity (per_hour) [277ms]
 #> 
 #>          date value
 #> 1  2020-01-01  97.2
