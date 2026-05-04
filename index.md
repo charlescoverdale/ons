@@ -63,6 +63,7 @@ monthly data appear in the same file. Every analyst who works with ONS
 data writes the same boilerplate.
 
 ``` r
+
 # Without this package
 url <- paste0(
   "https://www.ons.gov.uk/generator?format=csv",
@@ -81,6 +82,7 @@ ons_gdp(from = "2020-01-01")
 ## Installation
 
 ``` r
+
 install.packages("ons")
 
 # Or install the development version from GitHub
@@ -92,24 +94,24 @@ devtools::install_github("charlescoverdale/ons")
 
 ## Functions
 
-| Function                                                                                           | Description                                              | From |
-|----------------------------------------------------------------------------------------------------|----------------------------------------------------------|------|
-| [`ons_gdp()`](https://charlescoverdale.github.io/ons/reference/ons_gdp.md)                         | Quarterly GDP (growth, YoY, level, nominal)              | 1948 |
-| [`ons_monthly_gdp()`](https://charlescoverdale.github.io/ons/reference/ons_monthly_gdp.md)         | Monthly GDP index                                        | 1997 |
-| [`ons_cpi()`](https://charlescoverdale.github.io/ons/reference/ons_cpi.md)                         | Consumer price inflation (CPI, CPIH, RPI; rate or index) | 1987 |
-| [`ons_unemployment()`](https://charlescoverdale.github.io/ons/reference/ons_unemployment.md)       | Unemployment rate (16+, seasonally adjusted)             | 1971 |
-| [`ons_employment()`](https://charlescoverdale.github.io/ons/reference/ons_employment.md)           | Employment rate (total, male, female)                    | 1971 |
-| [`ons_inactivity()`](https://charlescoverdale.github.io/ons/reference/ons_inactivity.md)           | Economic inactivity (thousands)                          | 1971 |
-| [`ons_wages()`](https://charlescoverdale.github.io/ons/reference/ons_wages.md)                     | Average weekly earnings (level, growth, real)            | 2000 |
-| [`ons_trade()`](https://charlescoverdale.github.io/ons/reference/ons_trade.md)                     | Trade balance, exports, imports (GBP millions)           | 1948 |
-| [`ons_retail_sales()`](https://charlescoverdale.github.io/ons/reference/ons_retail_sales.md)       | Retail sales index (volume or value)                     | 1988 |
-| [`ons_house_prices()`](https://charlescoverdale.github.io/ons/reference/ons_house_prices.md)       | UK average house price (GBP)                             | 1968 |
-| [`ons_productivity()`](https://charlescoverdale.github.io/ons/reference/ons_productivity.md)       | Output per hour or per worker (index)                    | 1971 |
-| [`ons_population()`](https://charlescoverdale.github.io/ons/reference/ons_population.md)           | Mid-year population estimates                            | 1971 |
-| [`ons_public_finances()`](https://charlescoverdale.github.io/ons/reference/ons_public_finances.md) | Public sector net borrowing (GBP millions)               | 1993 |
-| [`ons_get()`](https://charlescoverdale.github.io/ons/reference/ons_get.md)                         | Fetch any series by CDID code                            | Any  |
-| [`ons_search()`](https://charlescoverdale.github.io/ons/reference/ons_search.md)                   | Search the ONS catalogue by keyword                      | \-   |
-| [`clear_cache()`](https://charlescoverdale.github.io/ons/reference/clear_cache.md)                 | Delete locally cached data files                         | \-   |
+| Function | Description | From |
+|----|----|----|
+| [`ons_gdp()`](https://charlescoverdale.github.io/ons/reference/ons_gdp.md) | Quarterly GDP (growth, YoY, level, nominal) | 1948 |
+| [`ons_monthly_gdp()`](https://charlescoverdale.github.io/ons/reference/ons_monthly_gdp.md) | Monthly GDP index | 1997 |
+| [`ons_cpi()`](https://charlescoverdale.github.io/ons/reference/ons_cpi.md) | Consumer price inflation (CPI, CPIH, RPI; rate or index) | 1987 |
+| [`ons_unemployment()`](https://charlescoverdale.github.io/ons/reference/ons_unemployment.md) | Unemployment rate (16+, seasonally adjusted) | 1971 |
+| [`ons_employment()`](https://charlescoverdale.github.io/ons/reference/ons_employment.md) | Employment rate (total, male, female) | 1971 |
+| [`ons_inactivity()`](https://charlescoverdale.github.io/ons/reference/ons_inactivity.md) | Economic inactivity (thousands) | 1971 |
+| [`ons_wages()`](https://charlescoverdale.github.io/ons/reference/ons_wages.md) | Average weekly earnings (level, growth, real) | 2000 |
+| [`ons_trade()`](https://charlescoverdale.github.io/ons/reference/ons_trade.md) | Trade balance, exports, imports (GBP millions) | 1948 |
+| [`ons_retail_sales()`](https://charlescoverdale.github.io/ons/reference/ons_retail_sales.md) | Retail sales index (volume or value) | 1988 |
+| [`ons_house_prices()`](https://charlescoverdale.github.io/ons/reference/ons_house_prices.md) | UK average house price (GBP) | 1968 |
+| [`ons_productivity()`](https://charlescoverdale.github.io/ons/reference/ons_productivity.md) | Output per hour or per worker (index) | 1971 |
+| [`ons_population()`](https://charlescoverdale.github.io/ons/reference/ons_population.md) | Mid-year population estimates | 1971 |
+| [`ons_public_finances()`](https://charlescoverdale.github.io/ons/reference/ons_public_finances.md) | Public sector net borrowing (GBP millions) | 1993 |
+| [`ons_get()`](https://charlescoverdale.github.io/ons/reference/ons_get.md) | Fetch any series by CDID code | Any |
+| [`ons_search()`](https://charlescoverdale.github.io/ons/reference/ons_search.md) | Search the ONS catalogue by keyword | \- |
+| [`clear_cache()`](https://charlescoverdale.github.io/ons/reference/clear_cache.md) | Delete locally cached data files | \- |
 
 ------------------------------------------------------------------------
 
@@ -118,6 +120,7 @@ devtools::install_github("charlescoverdale/ons")
 ### How fast is the UK economy growing?
 
 ``` r
+
 library(ons)
 
 # Quarterly GDP growth
@@ -137,6 +140,7 @@ tail(gdp, 6)
 ### How has inflation changed over time?
 
 ``` r
+
 # CPI annual rate
 cpi <- ons_cpi(from = "2024-01-01")
 tail(cpi, 6)
@@ -158,6 +162,7 @@ ons_cpi(measure = "rpi", type = "index", from = "2024-01-01")
 ### What is the UK unemployment rate?
 
 ``` r
+
 # Unemployment rate (16+, SA)
 unemp <- ons_unemployment(from = "2020-01-01")
 tail(unemp, 6)
@@ -175,6 +180,7 @@ tail(unemp, 6)
 ### How have wages changed over time?
 
 ``` r
+
 # Average weekly earnings (GBP)
 wages <- ons_wages(from = "2024-01-01")
 tail(wages, 6)
@@ -196,6 +202,7 @@ ons_wages(measure = "real", from = "2024-01-01")
 ### What is the average UK house price?
 
 ``` r
+
 # UK average house price
 hp <- ons_house_prices(from = "2024-01-01")
 tail(hp, 6)
@@ -213,6 +220,7 @@ tail(hp, 6)
 ### What is the UK’s trade balance?
 
 ``` r
+
 # Trade balance (GBP millions, negative = deficit)
 trade <- ons_trade(from = "2024-01-01")
 tail(trade, 6)
@@ -233,6 +241,7 @@ ons_trade(measure = "exports", from = "2024-01-01")
 ### How much is the UK government borrowing?
 
 ``` r
+
 # Public sector net borrowing (GBP millions)
 pf <- ons_public_finances(from = "2024-01-01")
 tail(pf, 6)
@@ -250,6 +259,7 @@ tail(pf, 6)
 ### Fetching any series by CDID code
 
 ``` r
+
 # If you know the ONS CDID code, use ons_get() directly
 # Find codes at https://www.ons.gov.uk/timeseriestool
 
@@ -278,6 +288,7 @@ Subsequent calls return the cached copy instantly - no network request
 is made.
 
 ``` r
+
 # Force a fresh download
 ons_gdp(from = "2020-01-01", cache = FALSE)
 
@@ -292,38 +303,20 @@ clear_cache()
 
 ## Related packages
 
-This package is part of a suite of R packages for economic, financial,
-and policy data. They share a consistent interface (named functions,
-tidy data frames, local caching) and are designed to work together.
-
-**Data access:**
-
-| Package                                                        | Source                                                |
-|----------------------------------------------------------------|-------------------------------------------------------|
-| [`boe`](https://github.com/charlescoverdale/boe)               | Bank of England                                       |
-| [`hmrc`](https://github.com/charlescoverdale/hmrc)             | HM Revenue & Customs                                  |
-| [`obr`](https://github.com/charlescoverdale/obr)               | Office for Budget Responsibility                      |
-| [`ukhousing`](https://github.com/charlescoverdale/ukhousing)   | UK Land Registry, EPC, Planning                       |
-| [`fred`](https://github.com/charlescoverdale/fred)             | US Federal Reserve (FRED)                             |
-| [`readecb`](https://github.com/charlescoverdale/readecb)       | European Central Bank                                 |
-| [`readoecd`](https://github.com/charlescoverdale/readoecd)     | OECD                                                  |
-| [`readnoaa`](https://github.com/charlescoverdale/readnoaa)     | NOAA Climate Data                                     |
-| [`readaec`](https://github.com/charlescoverdale/readaec)       | Australian Electoral Commission                       |
-| [`comtrade`](https://github.com/charlescoverdale/comtrade)     | UN Comtrade                                           |
-| [`carbondata`](https://github.com/charlescoverdale/carbondata) | Carbon markets (EU ETS, UK ETS, voluntary registries) |
-
-**Analytical toolkits:**
-
-| Package                                                            | Purpose                                                         |
-|--------------------------------------------------------------------|-----------------------------------------------------------------|
-| [`inflateR`](https://github.com/charlescoverdale/inflateR)         | Inflation adjustment for price series                           |
+| Package | Description |
+|----|----|
+| [`boe`](https://github.com/charlescoverdale/boe) | Bank of England data (rates, monetary policy, financial markets) |
+| [`hmrc`](https://github.com/charlescoverdale/hmrc) | HM Revenue & Customs tax data |
+| [`obr`](https://github.com/charlescoverdale/obr) | Office for Budget Responsibility fiscal forecasts |
+| [`ukhousing`](https://github.com/charlescoverdale/ukhousing) | UK Land Registry, EPC, and planning data |
+| [`fred`](https://github.com/charlescoverdale/fred) | US Federal Reserve (FRED) data |
+| [`readecb`](https://github.com/charlescoverdale/readecb) | European Central Bank data |
+| [`readoecd`](https://github.com/charlescoverdale/readoecd) | OECD international data |
+| [`inflateR`](https://github.com/charlescoverdale/inflateR) | Inflation adjustment for UK price series |
 | [`inflationkit`](https://github.com/charlescoverdale/inflationkit) | Inflation analysis (decomposition, persistence, Phillips curve) |
-| [`yieldcurves`](https://github.com/charlescoverdale/yieldcurves)   | Yield curve fitting (Nelson-Siegel, Svensson)                   |
-| [`debtkit`](https://github.com/charlescoverdale/debtkit)           | Debt sustainability analysis                                    |
-| [`nowcast`](https://github.com/charlescoverdale/nowcast)           | Economic nowcasting                                             |
-| [`predictset`](https://github.com/charlescoverdale/predictset)     | Conformal prediction                                            |
-| [`climatekit`](https://github.com/charlescoverdale/climatekit)     | Climate indices                                                 |
-| [`inequality`](https://github.com/charlescoverdale/inequality)     | Inequality and poverty measurement                              |
+| [`nowcast`](https://github.com/charlescoverdale/nowcast) | Economic nowcasting (bridge, MIDAS, DFM) |
+| [`debtkit`](https://github.com/charlescoverdale/debtkit) | Debt sustainability analysis |
+| [`inequality`](https://github.com/charlescoverdale/inequality) | Inequality and poverty measurement |
 
 ------------------------------------------------------------------------
 

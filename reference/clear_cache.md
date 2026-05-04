@@ -34,8 +34,8 @@ Other data access:
 # \donttest{
 op <- options(ons.cache_dir = tempdir())
 clear_cache()
-#> Warning: cannot remove file '/tmp/Rtmp7EFRaH/bslib-246362e7e3ff6191071d5f9b40ba8d62', reason 'Directory not empty'
-#> Warning: cannot remove file '/tmp/Rtmp7EFRaH/downlit', reason 'Directory not empty'
+#> Warning: cannot remove file '/tmp/Rtmp6ApD8Y/bslib-8a92d22979ec96a3105b4f8cbcdeeec5', reason 'Directory not empty'
+#> Warning: cannot remove file '/tmp/Rtmp6ApD8Y/downlit', reason 'Directory not empty'
 #> ✔ Removed 2 cached files.
 options(op)
 # }

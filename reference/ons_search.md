@@ -60,8 +60,8 @@ try(ons_search("GDP growth"))
 #>    cdid dataset_id                                         title
 #> 1  KB82        PN2                 Revisions to GDP CVM growth %
 #> 2  KB82        QNA                 Revisions to GDP CVM growth %
-#> 3  IHYT        QNA GDP Deflator: Quarter on quarter growth: SA %
-#> 4  IHYS       UKEA       GDP Deflator: Year on Year growth: SA %
+#> 3  IHYS       UKEA       GDP Deflator: Year on Year growth: SA %
+#> 4  IHYT        QNA GDP Deflator: Quarter on quarter growth: SA %
 #> 5  IHYS        QNA       GDP Deflator: Year on Year growth: SA %
 #> 6  MNF4        PN2 GDP Deflator: Quarter on quarter growth: SA %
 #> 7  MNF3        QNA       GDP Deflator: Year on Year growth: SA %

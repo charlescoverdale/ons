@@ -55,12 +55,7 @@ Other economic indicators:
 op <- options(ons.cache_dir = tempdir())
 try(ons_population(from = "2000-01-01"))
 #> ℹ Fetching population estimates
-#> Waiting 10s for retry backoff ■■■■■■■■■                       
-#> Waiting 10s for retry backoff ■■■■■■■■■■■■■■■■■               
-#> Waiting 10s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■■      
-#> Waiting 10s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 
-#> ℹ Fetching population estimates
-#> ✔ Fetching population estimates [10.5s]
+#> ✔ Fetching population estimates [203ms]
 #> 
 #>          date    value
 #> 1  2000-01-01 58886100
