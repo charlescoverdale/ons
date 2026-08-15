@@ -1,39 +1,27 @@
-# CRAN submission comments — ons 0.1.3
+# CRAN submission comments — ons 0.1.4
 
-## Resubmission
+## Reason for this submission
 
-This is a resubmission addressing CRAN feedback (Prof Ripley, 2026-03-15).
-Changes since ons 0.1.0 (currently on CRAN):
+This is a small maintenance update to ons 0.1.3, currently on CRAN.
 
-* Examples now cache to `tempdir()` instead of the user's home directory,
-  fixing CRAN policy compliance for `\donttest` examples.
-* Cache directory is now configurable via `options(ons.cache_dir = ...)`.
-* Removed non-existent pkgdown URL from DESCRIPTION.
-* Examples now wrapped in `try()` to handle transient ONS API failures
-  gracefully during CRAN checks — the ONS API returned HTTP 429 during
-  the 0.1.2 pretest donttest run.
+`ons_search()` was the only API-calling function in the package without
+rate limiting, so a loop over search terms could trip the ONS API's 429
+response where the equivalent loop over any other function would not. It
+now uses the same rate limiter as the rest of the package.
 
-## Test environments
-
-* macOS Sequoia 15.6.1, R 4.5.2 (aarch64-apple-darwin20) — local
+No API changes, no changes to returned data.
 
 ## R CMD check results
 
-0 errors | 0 warnings | 0 notes
+0 errors | 0 warnings | 0 notes (CRAN default settings, R 4.5.2, macOS).
+
+## Notes on data access
+
+Unchanged: the package calls the ONS API on demand and caches locally
+using `tools::R_user_dir()`. No data is bundled. Network-using examples
+are wrapped in `\donttest{}` and tests in `skip_on_cran()`, so the check
+does not depend on the API being reachable.
 
 ## Downstream dependencies
 
-None — no reverse dependencies.
-
-## Notes for CRAN reviewers
-
-* All functions that make network requests are wrapped in `\donttest{}` with
-  `try()`, so they fail gracefully if the ONS API is unavailable. Caching is
-  redirected to `tempdir()` so that no files are written to the user's home
-  filespace.
-* Data is fetched from the Office for National Statistics website at
-  `https://www.ons.gov.uk`, the ONS Search API at
-  `https://api.beta.ons.gov.uk/v1/search`, and HM Land Registry at
-  `https://publicdata.landregistry.gov.uk` (house prices only).
-* Local caching uses `tools::R_user_dir("ons", "cache")` (base R, no
-  additional dependencies).
+None on CRAN.
