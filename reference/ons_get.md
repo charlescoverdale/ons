@@ -70,7 +70,7 @@ Other data access:
 op <- options(ons.cache_dir = tempdir())
 try(ons_get("IHYQ", from = "2020-01-01"))
 #> ℹ Fetching "IHYQ"
-#> ✔ Fetching "IHYQ" [939ms]
+#> ✔ Fetching "IHYQ" [719ms]
 #> 
 #>          date cdid value
 #> 1  2020-01-01 IHYQ  -2.7
@@ -89,14 +89,16 @@ try(ons_get("IHYQ", from = "2020-01-01"))
 #> 14 2023-04-01 IHYQ   0.0
 #> 15 2023-07-01 IHYQ  -0.2
 #> 16 2023-10-01 IHYQ  -0.3
-#> 17 2024-01-01 IHYQ   0.8
+#> 17 2024-01-01 IHYQ   0.7
 #> 18 2024-04-01 IHYQ   0.6
 #> 19 2024-07-01 IHYQ   0.2
-#> 20 2024-10-01 IHYQ   0.3
-#> 21 2025-01-01 IHYQ   0.7
+#> 20 2024-10-01 IHYQ   0.4
+#> 21 2025-01-01 IHYQ   0.6
 #> 22 2025-04-01 IHYQ   0.2
 #> 23 2025-07-01 IHYQ   0.1
 #> 24 2025-10-01 IHYQ   0.1
+#> 25 2026-01-01 IHYQ   0.6
+#> 26 2026-04-01 IHYQ   0.4
 options(op)
 # }
 ```
