@@ -60,23 +60,23 @@ try(ons_search("GDP growth"))
 #>    cdid dataset_id                                         title
 #> 1  KB82        PN2                 Revisions to GDP CVM growth %
 #> 2  KB82        QNA                 Revisions to GDP CVM growth %
-#> 3  MNF4        PN2 GDP Deflator: Quarter on quarter growth: SA %
-#> 4  IHYS        QNA       GDP Deflator: Year on Year growth: SA %
-#> 5  IHYT        QNA GDP Deflator: Quarter on quarter growth: SA %
-#> 6  IHYS       UKEA       GDP Deflator: Year on Year growth: SA %
-#> 7  MNF3        QNA       GDP Deflator: Year on Year growth: SA %
-#> 8  MNF3        PN2       GDP Deflator: Year on Year growth: SA %
-#> 9  IHYS        PN2       GDP Deflator: Year on Year growth: SA %
-#> 10 IHYT       UKEA GDP Deflator: Quarter on quarter growth: SA %
+#> 3  IHYT        QNA GDP Deflator: Quarter on quarter growth: SA %
+#> 4  IHYS       UKEA       GDP Deflator: Year on Year growth: SA %
+#> 5  MNF3        QNA       GDP Deflator: Year on Year growth: SA %
+#> 6  MNF3        PN2       GDP Deflator: Year on Year growth: SA %
+#> 7  IHYS        PN2       GDP Deflator: Year on Year growth: SA %
+#> 8  IHYT       UKEA GDP Deflator: Quarter on quarter growth: SA %
+#> 9  IHYT        PN2 GDP Deflator: Quarter on quarter growth: SA %
+#> 10 MNF4        QNA GDP Deflator: Quarter on quarter growth: SA %
 #>                release_date
 #> 1  2026-02-12T00:00:00.000Z
 #> 2  2026-06-29T23:00:00.000Z
-#> 3  2026-08-12T23:00:00.000Z
+#> 3  2026-06-29T23:00:00.000Z
 #> 4  2026-06-29T23:00:00.000Z
 #> 5  2026-06-29T23:00:00.000Z
-#> 6  2026-06-29T23:00:00.000Z
-#> 7  2026-06-29T23:00:00.000Z
-#> 8  2026-08-12T23:00:00.000Z
+#> 6  2026-08-12T23:00:00.000Z
+#> 7  2026-08-12T23:00:00.000Z
+#> 8  2026-06-29T23:00:00.000Z
 #> 9  2026-08-12T23:00:00.000Z
 #> 10 2026-06-29T23:00:00.000Z
 options(op)

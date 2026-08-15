@@ -61,7 +61,7 @@ try(ons_population(from = "2000-01-01"))
 #> Waiting 10s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■■■■    
 #> Waiting 10s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 
 #> ℹ Fetching population estimates
-#> ✖ Fetching population estimates [10.4s]
+#> ✖ Fetching population estimates [10.5s]
 #> 
 #> Error in download_cached_ons(url, cache = cache) : 
 #>   ONS returned HTTP status 429.
