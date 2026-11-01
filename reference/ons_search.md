@@ -57,27 +57,38 @@ Other data access:
 # \donttest{
 op <- options(ons.cache_dir = tempdir())
 try(ons_search("GDP growth"))
-#>    cdid dataset_id                                         title
-#> 1  KB82        PN2                 Revisions to GDP CVM growth %
-#> 2  KB82        QNA                 Revisions to GDP CVM growth %
-#> 3  IHYT        QNA GDP Deflator: Quarter on quarter growth: SA %
-#> 4  IHYS       UKEA       GDP Deflator: Year on Year growth: SA %
-#> 5  MNF4        PN2 GDP Deflator: Quarter on quarter growth: SA %
-#> 6  IHYS        QNA       GDP Deflator: Year on Year growth: SA %
-#> 7  MNF3        QNA       GDP Deflator: Year on Year growth: SA %
-#> 8  IHYT        PN2 GDP Deflator: Quarter on quarter growth: SA %
-#> 9  MNF4        QNA GDP Deflator: Quarter on quarter growth: SA %
-#> 10 MNF3        PN2       GDP Deflator: Year on Year growth: SA %
+#>    cdid dataset_id
+#> 1  KB82        PN2
+#> 2  KB82        QNA
+#> 3  IHYS       UKEA
+#> 4  IHYT        QNA
+#> 5  IHYS        QNA
+#> 6  MNF4        PN2
+#> 7  MNF4        QNA
+#> 8  IHYT        PN2
+#> 9  MNF3        QNA
+#> 10 IHYO        PN2
+#>                                                             title
+#> 1                                   Revisions to GDP CVM growth %
+#> 2                                   Revisions to GDP CVM growth %
+#> 3                         GDP Deflator: Year on Year growth: SA %
+#> 4                   GDP Deflator: Quarter on quarter growth: SA %
+#> 5                         GDP Deflator: Year on Year growth: SA %
+#> 6                   GDP Deflator: Quarter on quarter growth: SA %
+#> 7                   GDP Deflator: Quarter on quarter growth: SA %
+#> 8                   GDP Deflator: Quarter on quarter growth: SA %
+#> 9                         GDP Deflator: Year on Year growth: SA %
+#> 10 Gross Domestic Product: q-on-q4 growth quarter growth: CP SA %
 #>                release_date
 #> 1  2026-02-12T00:00:00.000Z
-#> 2  2026-06-29T23:00:00.000Z
-#> 3  2026-06-29T23:00:00.000Z
-#> 4  2026-06-29T23:00:00.000Z
-#> 5  2026-08-12T23:00:00.000Z
-#> 6  2026-06-29T23:00:00.000Z
-#> 7  2026-06-29T23:00:00.000Z
+#> 2  2026-09-29T23:00:00.000Z
+#> 3  2026-09-29T23:00:00.000Z
+#> 4  2026-09-29T23:00:00.000Z
+#> 5  2026-09-29T23:00:00.000Z
+#> 6  2026-08-12T23:00:00.000Z
+#> 7  2026-09-29T23:00:00.000Z
 #> 8  2026-08-12T23:00:00.000Z
-#> 9  2026-06-29T23:00:00.000Z
+#> 9  2026-09-29T23:00:00.000Z
 #> 10 2026-08-12T23:00:00.000Z
 options(op)
 # }

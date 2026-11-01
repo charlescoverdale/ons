@@ -65,7 +65,38 @@ Other labour market:
 op <- options(ons.cache_dir = tempdir())
 try(ons_wages(from = "2020-01-01"))
 #> ℹ Fetching average weekly earnings (level)
-#> ✔ Fetching average weekly earnings (level) [217ms]
+#> Waiting 10s for retry backoff ■■■■                            
+#> Waiting 10s for retry backoff ■■■■■■■■■■                      
+#> Waiting 10s for retry backoff ■■■■■■■■■■■■■■■■■■■             
+#> Waiting 10s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■■■■    
+#> Waiting 10s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 
+#> ℹ Fetching average weekly earnings (level)
+
+#> Warning: unable to translate 'HTTP/2 200 
+
+#> date: Sun, 01 Nov 2026 14:09:05 GMT
+
+#> content-type: application/octet-stream;charset=utf-8
+
+#> content-length: 2148
+
+#> cache-control: public, s-maxage=900, max-age=900, stale-while-revalidate=10
+
+#> content-disposition: attachment; filename="AWE: W...' to a wide string
+#> Warning: input string 1 is invalid
+#> Warning: unable to translate 'HTTP/2 200 
+
+#> date: Sun, 01 Nov 2026 14:09:05 GMT
+
+#> content-type: application/octet-stream;charset=utf-8
+
+#> content-length: 2148
+
+#> cache-control: public, s-maxage=900, max-age=900, stale-while-revalidate=10
+
+#> content-disposition: attachment; filename="AWE: W...' to a wide string
+#> Warning: input string 1 is invalid
+#> ✔ Fetching average weekly earnings (level) [10.5s]
 #> 
 #>          date value
 #> 1  2020-01-01   546
@@ -133,9 +164,9 @@ try(ons_wages(from = "2020-01-01"))
 #> 63 2025-03-01   722
 #> 64 2025-04-01   720
 #> 65 2025-05-01   724
-#> 66 2025-06-01   726
-#> 67 2025-07-01   729
-#> 68 2025-08-01   733
+#> 66 2025-06-01   725
+#> 67 2025-07-01   728
+#> 68 2025-08-01   734
 #> 69 2025-09-01   734
 #> 70 2025-10-01   739
 #> 71 2025-11-01   739
@@ -145,7 +176,9 @@ try(ons_wages(from = "2020-01-01"))
 #> 75 2026-03-01   756
 #> 76 2026-04-01   753
 #> 77 2026-05-01   751
-#> 78 2026-06-01   755
+#> 78 2026-06-01   756
+#> 79 2026-07-01   757
+#> 80 2026-08-01   757
 options(op)
 # }
 ```

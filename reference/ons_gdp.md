@@ -23,9 +23,12 @@ ons_gdp(
 - measure:
 
   Character. One of `"growth"` (default, quarter-on-quarter percentage
-  change), `"yoy"` (year-on-year percentage change), `"level"` (chained
-  volume measure in GBP millions, seasonally adjusted), or `"nominal"`
-  (current price GBP millions, seasonally adjusted).
+  change), `"yoy"` (percentage change on the same quarter a year
+  earlier), `"level"` (chained volume measure in GBP millions,
+  seasonally adjusted), or `"nominal"` (current price GBP millions,
+  seasonally adjusted). Each series is read from whichever of the
+  first-estimate (PN2) and quarterly national accounts (QNA) datasets
+  the ONS released most recently.
 
 - from:
 
@@ -68,18 +71,18 @@ Other economic indicators:
 op <- options(ons.cache_dir = tempdir())
 try(ons_gdp(from = "2020-01-01"))
 #> ℹ Fetching GDP (growth)
-#> ✔ Fetching GDP (growth) [217ms]
+#> ✔ Fetching GDP (growth) [295ms]
 #> 
 #>          date value
-#> 1  2020-01-01  -2.7
+#> 1  2020-01-01  -2.8
 #> 2  2020-04-01 -19.9
-#> 3  2020-07-01  17.0
+#> 3  2020-07-01  16.9
 #> 4  2020-10-01   1.4
 #> 5  2021-01-01  -1.1
 #> 6  2021-04-01   7.0
 #> 7  2021-07-01   1.7
 #> 8  2021-10-01   1.4
-#> 9  2022-01-01   1.0
+#> 9  2022-01-01   0.9
 #> 10 2022-04-01   0.6
 #> 11 2022-07-01   0.1
 #> 12 2022-10-01   0.3
@@ -92,11 +95,11 @@ try(ons_gdp(from = "2020-01-01"))
 #> 19 2024-07-01   0.2
 #> 20 2024-10-01   0.4
 #> 21 2025-01-01   0.6
-#> 22 2025-04-01   0.2
-#> 23 2025-07-01   0.1
-#> 24 2025-10-01   0.1
+#> 22 2025-04-01   0.0
+#> 23 2025-07-01   0.2
+#> 24 2025-10-01   0.0
 #> 25 2026-01-01   0.6
-#> 26 2026-04-01   0.4
+#> 26 2026-04-01   0.5
 options(op)
 # }
 ```

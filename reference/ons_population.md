@@ -55,12 +55,7 @@ Other economic indicators:
 op <- options(ons.cache_dir = tempdir())
 try(ons_population(from = "2000-01-01"))
 #> ℹ Fetching population estimates
-#> Waiting 10s for retry backoff ■■■■■■■■■                       
-#> Waiting 10s for retry backoff ■■■■■■■■■■■■■■■■■■              
-#> Waiting 10s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■■■     
-#> Waiting 10s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 
-#> ℹ Fetching population estimates
-#> ✔ Fetching population estimates [10.5s]
+#> ✔ Fetching population estimates [245ms]
 #> 
 #>          date    value
 #> 1  2000-01-01 58886100
@@ -85,10 +80,10 @@ try(ons_population(from = "2000-01-01"))
 #> 20 2019-01-01 66627500
 #> 21 2020-01-01 66739900
 #> 22 2021-01-01 66978000
-#> 23 2022-01-01 67636100
-#> 24 2023-01-01 68526200
-#> 25 2024-01-01 69281400
-#> 26 2025-01-01 69487000
+#> 23 2022-01-01 67680000
+#> 24 2023-01-01 68588000
+#> 25 2024-01-01 69256300
+#> 26 2025-01-01 69483900
 options(op)
 # }
 ```

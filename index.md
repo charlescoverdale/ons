@@ -126,13 +126,13 @@ library(ons)
 # Quarterly GDP growth
 gdp <- ons_gdp(from = "2000-01-01")
 tail(gdp, 6)
-#>         date value
-#>   2024-07-01   0.2
-#>   2024-10-01   0.3
-#>   2025-01-01   0.7
-#>   2025-04-01   0.2
-#>   2025-07-01   0.1
-#>   2025-10-01   0.1
+#>        date value
+#>  2025-01-01   0.6
+#>  2025-04-01   0.0
+#>  2025-07-01   0.2
+#>  2025-10-01   0.0
+#>  2026-01-01   0.6
+#>  2026-04-01   0.5
 ```
 
 ------------------------------------------------------------------------
@@ -144,13 +144,13 @@ tail(gdp, 6)
 # CPI annual rate
 cpi <- ons_cpi(from = "2024-01-01")
 tail(cpi, 6)
-#>         date value
-#>   2025-08-01   3.8
-#>   2025-09-01   3.8
-#>   2025-10-01   3.6
-#>   2025-11-01   3.2
-#>   2025-12-01   3.4
-#>   2026-01-01   3.0
+#>        date value
+#>  2026-04-01   2.8
+#>  2026-05-01   2.8
+#>  2026-06-01   2.6
+#>  2026-07-01   2.9
+#>  2026-08-01   3.1
+#>  2026-09-01   3.5
 
 # CPIH or RPI
 ons_cpi(measure = "cpih", from = "2024-01-01")
@@ -166,13 +166,13 @@ ons_cpi(measure = "rpi", type = "index", from = "2024-01-01")
 # Unemployment rate (16+, SA)
 unemp <- ons_unemployment(from = "2020-01-01")
 tail(unemp, 6)
-#>         date value
-#>   2025-06-01   4.7
-#>   2025-07-01   4.8
-#>   2025-08-01   5.0
-#>   2025-09-01   5.1
-#>   2025-10-01   5.1
-#>   2025-11-01   5.2
+#>        date value
+#>  2026-02-01   5.0
+#>  2026-03-01   4.9
+#>  2026-04-01   4.9
+#>  2026-05-01   4.9
+#>  2026-06-01   4.9
+#>  2026-07-01   4.7
 ```
 
 ------------------------------------------------------------------------
@@ -184,13 +184,13 @@ tail(unemp, 6)
 # Average weekly earnings (GBP)
 wages <- ons_wages(from = "2024-01-01")
 tail(wages, 6)
-#>         date value
-#>   2025-07-01   728
-#>   2025-08-01   733
-#>   2025-09-01   734
-#>   2025-10-01   740
-#>   2025-11-01   740
-#>   2025-12-01   735
+#>        date value
+#>  2026-03-01   756
+#>  2026-04-01   753
+#>  2026-05-01   751
+#>  2026-06-01   756
+#>  2026-07-01   757
+#>  2026-08-01   757
 
 # Year-on-year growth or real terms
 ons_wages(measure = "growth", from = "2024-01-01")
@@ -206,13 +206,13 @@ ons_wages(measure = "real", from = "2024-01-01")
 # UK average house price
 hp <- ons_house_prices(from = "2024-01-01")
 tail(hp, 6)
-#>         date average_price_gbp annual_change_pct
-#>   2025-07-01            270432               3.0
-#>   2025-08-01            271808               2.5
-#>   2025-09-01            270827               2.3
-#>   2025-10-01            270548               2.0
-#>   2025-11-01            272043               2.8
-#>   2025-12-01            270259               2.4
+#>        date average_price_gbp annual_change_pct
+#>  2026-03-01            268631               0.2
+#>  2026-04-01            270966               4.2
+#>  2026-05-01            272221               3.1
+#>  2026-06-01            270690               1.5
+#>  2026-07-01            272146               1.2
+#>  2026-08-01            273037               0.9
 ```
 
 ------------------------------------------------------------------------
@@ -224,13 +224,13 @@ tail(hp, 6)
 # Trade balance (GBP millions, negative = deficit)
 trade <- ons_trade(from = "2024-01-01")
 tail(trade, 6)
-#>         date value
-#>   2025-07-01 -2152
-#>   2025-08-01 -2151
-#>   2025-09-01 -4530
-#>   2025-10-01 -5790
-#>   2025-11-01 -5564
-#>   2025-12-01 -4340
+#>        date  value
+#>  2026-03-01 -10433
+#>  2026-04-01  -6059
+#>  2026-05-01  -2494
+#>  2026-06-01  -4221
+#>  2026-07-01  -2322
+#>  2026-08-01   -920
 
 # Exports or imports separately
 ons_trade(measure = "exports", from = "2024-01-01")
@@ -245,13 +245,13 @@ ons_trade(measure = "exports", from = "2024-01-01")
 # Public sector net borrowing (GBP millions)
 pf <- ons_public_finances(from = "2024-01-01")
 tail(pf, 6)
-#>         date  value
-#>   2025-08-01  15239
-#>   2025-09-01  22471
-#>   2025-10-01  16183
-#>   2025-11-01  10380
-#>   2025-12-01  13355
-#>   2026-01-01 -30366
+#>        date value
+#>  2026-04-01 23132
+#>  2026-05-01 19274
+#>  2026-06-01 13289
+#>  2026-07-01   374
+#>  2026-08-01 17252
+#>  2026-09-01 24520
 ```
 
 ------------------------------------------------------------------------
@@ -265,15 +265,15 @@ tail(pf, 6)
 
 # GDP growth vs CPI inflation
 ons_get(c("IHYQ", "D7G7"), from = "2024-01-01", to = "2024-06-30")
-#>         date cdid value
-#>   2024-01-01 IHYQ   0.8
-#>   2024-04-01 IHYQ   0.6
-#>   2024-01-01 D7G7   4.0
-#>   2024-02-01 D7G7   3.4
-#>   2024-03-01 D7G7   3.2
-#>   2024-04-01 D7G7   2.3
-#>   2024-05-01 D7G7   2.0
-#>   2024-06-01 D7G7   2.0
+#>        date cdid value
+#>  2024-01-01 IHYQ   0.7
+#>  2024-04-01 IHYQ   0.6
+#>  2024-01-01 D7G7   4.0
+#>  2024-02-01 D7G7   3.4
+#>  2024-03-01 D7G7   3.2
+#>  2024-04-01 D7G7   2.3
+#>  2024-05-01 D7G7   2.0
+#>  2024-06-01 D7G7   2.0
 
 # Search for series by keyword
 ons_search("GDP growth")
@@ -283,9 +283,11 @@ ons_search("GDP growth")
 
 ## Caching
 
-All downloads are cached locally in your user cache directory.
-Subsequent calls return the cached copy instantly - no network request
-is made.
+All downloads are cached locally in your user cache directory. Calls
+within 24 hours return the cached copy without a network request; after
+that the series is fetched again, so new releases and revisions come
+through. Set `options(ons.cache_ttl = 168)` to keep cached data for a
+week, or any other number of hours.
 
 ``` r
 
