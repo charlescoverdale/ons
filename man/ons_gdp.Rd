@@ -16,9 +16,12 @@ ons_gdp(
 }
 \arguments{
 \item{measure}{Character. One of \code{"growth"} (default, quarter-on-quarter
-percentage change), \code{"yoy"} (percentage change on the same quarter a year earlier), \code{"level"}
-(chained volume measure in GBP millions, seasonally adjusted), or
-\code{"nominal"} (current price GBP millions, seasonally adjusted).}
+percentage change), \code{"yoy"} (percentage change on the same quarter a
+year earlier), \code{"level"} (chained volume measure in GBP millions,
+seasonally adjusted), or \code{"nominal"} (current price GBP millions,
+seasonally adjusted). Each series is read from whichever of the
+first-estimate (PN2) and quarterly national accounts (QNA) datasets
+the ONS released most recently.}
 
 \item{from}{Date or character (YYYY-MM-DD). Start date. Defaults to
 \code{NULL} (all available data).}
