@@ -28,8 +28,8 @@ options(op)
 
 }
 \seealso{
-Other data access: 
-\code{\link{ons_get}()},
-\code{\link{ons_search}()}
+Other data access:
+\code{\link[=ons_get]{ons_get()}},
+\code{\link[=ons_search]{ons_search()}}
 }
 \concept{data access}

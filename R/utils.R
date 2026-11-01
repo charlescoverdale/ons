@@ -13,13 +13,31 @@ ons_fetch <- function(cdid, topic_path, dataset_code,
 
   cdid <- toupper(cdid)
 
-  url <- paste0(
-    ons_base_url(),
-    "?format=csv",
-    "&uri=", topic_path, "/timeseries/", tolower(cdid), "/", tolower(dataset_code)
-  )
-
-  raw <- download_cached_ons(url, cache = cache)
+  # A series can sit in several ONS datasets, which are released on
+  # different days: GDP is in the first-estimate dataset (PN2) and in the
+  # quarterly national accounts (QNA), and each in turn carries the latest
+  # revisions. Series also move between datasets (real earnings left LMS
+  # for EMP in 2026). Every candidate is tried and the most recently
+  # released copy is used.
+  raws <- list()
+  for (ds in dataset_code) {
+    url <- paste0(
+      ons_base_url(),
+      "?format=csv",
+      "&uri=", topic_path, "/timeseries/", tolower(cdid), "/", tolower(ds)
+    )
+    raw <- tryCatch(download_cached_ons(url, cache = cache),
+                    error = function(e) NULL)
+    if (!is.null(raw) && !grepl("^\\s*<", raw)) raws[[ds]] <- raw
+  }
+  if (length(raws) == 0L) {
+    cli::cli_abort(c(
+      "ONS series {.val {cdid}} was not found in dataset{?s} {.val {dataset_code}}.",
+      "i" = "The ONS may have moved or discontinued it. Please file an issue at https://github.com/charlescoverdale/ons/issues."
+    ))
+  }
+  released <- vapply(raws, ons_release_date, numeric(1))
+  raw <- raws[[which.max(released)]]
   out <- parse_ons_csv(raw, cdid = cdid)
 
   # Apply date filters
@@ -260,7 +278,8 @@ download_cached_ons <- function(url, cache = TRUE) {
   cache_file <- file.path(cache_dir, digest_url_ons(url))
 
   if (isTRUE(cache) && file.exists(cache_file)) {
-    return(readRDS(cache_file))
+    age <- difftime(Sys.time(), file.info(cache_file)$mtime, units = "hours")
+    if (as.numeric(age) < ons_cache_ttl()) return(readRDS(cache_file))
   }
 
   req <- httr2::request(url)
@@ -293,4 +312,29 @@ download_cached_ons <- function(url, cache = TRUE) {
   }
 
   raw
+}
+
+#' Release date recorded in an ONS time series CSV, as a number
+#'
+#' The CSV header carries a line such as `"Release date","30-09-2026"`.
+#' Returns `-Inf` when it is missing, so such a copy never wins.
+#' @noRd
+ons_release_date <- function(raw) {
+  m <- regmatches(raw, regexpr("\"Release date\",\"[0-9]{2}-[0-9]{2}-[0-9]{4}\"", raw))
+  if (length(m) == 0L) return(-Inf)
+  d <- as.Date(gsub("[^0-9-]", "", sub("^\"Release date\",", "", m)), format = "%d-%m-%Y")
+  if (is.na(d)) -Inf else as.numeric(d)
+}
+
+#' Cache lifetime in hours, respecting the ons.cache_ttl option
+#'
+#' ONS series are revised and extended with every release, so a cached
+#' copy older than this is fetched again. The default is 24 hours.
+#' @noRd
+ons_cache_ttl <- function() {
+  ttl <- getOption("ons.cache_ttl", default = 24)
+  if (!is.numeric(ttl) || length(ttl) != 1L || is.na(ttl) || ttl < 0) {
+    cli::cli_abort("Option {.code ons.cache_ttl} must be a single non-negative number of hours.")
+  }
+  ttl
 }

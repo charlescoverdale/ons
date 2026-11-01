@@ -23,3 +23,12 @@ test_that("ons_gdp() level measure works", {
 test_that("ons_gdp() rejects invalid measure", {
   expect_error(ons_gdp(measure = "invalid"))
 })
+
+test_that("ons_gdp yoy is quarterly and uses the most recent release", {
+  skip_on_cran()
+  skip_if_offline()
+  yoy <- ons_gdp(measure = "yoy", from = "2024-01-01")
+  # IHYP, used before 0.1.5, is annual and returned one row a year.
+  expect_true(all(format(yoy$date, "%m") %in% c("01", "04", "07", "10")))
+  expect_gte(nrow(yoy), 8L)
+})

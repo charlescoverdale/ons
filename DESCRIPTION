@@ -1,6 +1,6 @@
 Package: ons
 Title: Download Data from the 'Office for National Statistics'
-Version: 0.1.4
+Version: 0.1.5
 Authors@R:
     person("Charles", "Coverdale", , "charlesfcoverdale@gmail.com",
            role = c("aut", "cre"))
@@ -17,7 +17,6 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 Language: en-GB
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.3
 Imports:
     cli (>= 3.6.0),
     httr2 (>= 1.0.0),
@@ -29,3 +28,4 @@ URL: https://charlescoverdale.github.io/ons/, https://github.com/charlescoverdal
 BugReports: https://github.com/charlescoverdale/ons/issues
 Depends:
     R (>= 4.1.0)
+Config/roxygen2/version: 8.1.0

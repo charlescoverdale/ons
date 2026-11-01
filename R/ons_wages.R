@@ -44,7 +44,7 @@ ons_wages <- function(measure = c("level", "growth", "real"),
   )
 
   topic_path   <- "/employmentandlabourmarket/peopleinwork/earningsandworkinghours"
-  dataset_code <- "lms"
+  dataset_code <- c("lms", "emp")
 
   cli::cli_progress_step("Fetching average weekly earnings ({measure})")
   out <- ons_fetch(cdid, topic_path, dataset_code,

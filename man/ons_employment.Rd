@@ -45,9 +45,9 @@ options(op)
 
 }
 \seealso{
-Other labour market: 
-\code{\link{ons_inactivity}()},
-\code{\link{ons_unemployment}()},
-\code{\link{ons_wages}()}
+Other labour market:
+\code{\link[=ons_inactivity]{ons_inactivity()}},
+\code{\link[=ons_unemployment]{ons_unemployment()}},
+\code{\link[=ons_wages]{ons_wages()}}
 }
 \concept{labour market}

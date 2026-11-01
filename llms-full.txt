@@ -1,8 +1,8 @@
-# ons — full API reference
+# ons: full API reference
 
 > Provides functions to download and tidy statistical data published by the 'Office for National Statistics'.
 
-- Version: 0.1.4
+- Version: 0.1.5
 - Install: `install.packages("ons")`
 - CRAN: https://CRAN.R-project.org/package=ons
 - GitHub: https://github.com/charlescoverdale/ons
@@ -27,7 +27,7 @@ clear_cache(max_age_days = NULL)
 
 **Arguments**
 
-- `max_age_days` — Numeric. If supplied, only files older than this many days are removed. If `NULL` (the default), all cached files are removed.
+- `max_age_days`: Numeric. If supplied, only files older than this many days are removed. If `NULL` (the default), all cached files are removed.
 
 **Returns**
 
@@ -63,11 +63,11 @@ ons_cpi(
 
 **Arguments**
 
-- `measure` — Character. One of `"cpi"` (default), `"cpih"`, or `"rpi"`.
-- `type` — Character. One of `"rate"` (default, annual percentage change) or `"index"` (index level).
-- `from` — Date or character (YYYY-MM-DD). Start date. Defaults to `NULL` (all available data).
-- `to` — Date or character (YYYY-MM-DD). End date. Defaults to `NULL`.
-- `cache` — Logical. Use cached data if available (default `TRUE`).
+- `measure`: Character. One of `"cpi"` (default), `"cpih"`, or `"rpi"`.
+- `type`: Character. One of `"rate"` (default, annual percentage change) or `"index"` (index level).
+- `from`: Date or character (YYYY-MM-DD). Start date. Defaults to `NULL` (all available data).
+- `to`: Date or character (YYYY-MM-DD). End date. Defaults to `NULL`.
+- `cache`: Logical. Use cached data if available (default `TRUE`).
 
 **Returns**
 
@@ -102,10 +102,10 @@ ons_employment(
 
 **Arguments**
 
-- `group` — Character. One of `"total"` (default), `"male"`, or `"female"`.
-- `from` — Date or character (YYYY-MM-DD). Start date. Defaults to `NULL` (all available data).
-- `to` — Date or character (YYYY-MM-DD). End date. Defaults to `NULL`.
-- `cache` — Logical. Use cached data if available (default `TRUE`).
+- `group`: Character. One of `"total"` (default), `"male"`, or `"female"`.
+- `from`: Date or character (YYYY-MM-DD). Start date. Defaults to `NULL` (all available data).
+- `to`: Date or character (YYYY-MM-DD). End date. Defaults to `NULL`.
+- `cache`: Logical. Use cached data if available (default `TRUE`).
 
 **Returns**
 
@@ -140,10 +140,10 @@ ons_gdp(
 
 **Arguments**
 
-- `measure` — Character. One of `"growth"` (default, quarter-on-quarter percentage change), `"yoy"` (year-on-year percentage change), `"level"` (chained volume measure in GBP millions, seasonally adjusted), or `"nominal"` (current price GBP millions, seasonally adjusted).
-- `from` — Date or character (YYYY-MM-DD). Start date. Defaults to `NULL` (all available data).
-- `to` — Date or character (YYYY-MM-DD). End date. Defaults to `NULL`.
-- `cache` — Logical. Use cached data if available (default `TRUE`).
+- `measure`: Character. One of `"growth"` (default, quarter-on-quarter percentage change), `"yoy"` (percentage change on the same quarter a year earlier), `"level"` (chained volume measure in GBP millions, seasonally adjusted), or `"nominal"` (current price GBP millions, seasonally adjusted).
+- `from`: Date or character (YYYY-MM-DD). Start date. Defaults to `NULL` (all available data).
+- `to`: Date or character (YYYY-MM-DD). End date. Defaults to `NULL`.
+- `cache`: Logical. Use cached data if available (default `TRUE`).
 
 **Returns**
 
@@ -173,10 +173,10 @@ ons_get(cdid, from = NULL, to = NULL, cache = TRUE)
 
 **Arguments**
 
-- `cdid` — Character vector. One or more ONS CDID codes (e.g. `"IHYQ"` for quarterly GDP growth). Maximum 50 codes per call.
-- `from` — Date or character (YYYY-MM-DD). Start date filter. Defaults to `NULL` (all available data).
-- `to` — Date or character (YYYY-MM-DD). End date filter. Defaults to `NULL` (up to the latest observation).
-- `cache` — Logical. Use cached data if available (default `TRUE`).
+- `cdid`: Character vector. One or more ONS CDID codes (e.g. `"IHYQ"` for quarterly GDP growth). Maximum 50 codes per call.
+- `from`: Date or character (YYYY-MM-DD). Start date filter. Defaults to `NULL` (all available data).
+- `to`: Date or character (YYYY-MM-DD). End date filter. Defaults to `NULL` (up to the latest observation).
+- `cache`: Logical. Use cached data if available (default `TRUE`).
 
 **Returns**
 
@@ -206,9 +206,9 @@ ons_house_prices(from = NULL, to = NULL, cache = TRUE)
 
 **Arguments**
 
-- `from` — Date or character (YYYY-MM-DD). Start date. Defaults to `NULL` (all available data).
-- `to` — Date or character (YYYY-MM-DD). End date. Defaults to `NULL`.
-- `cache` — Logical. Use cached data if available (default `TRUE`).
+- `from`: Date or character (YYYY-MM-DD). Start date. Defaults to `NULL` (all available data).
+- `to`: Date or character (YYYY-MM-DD). End date. Defaults to `NULL`.
+- `cache`: Logical. Use cached data if available (default `TRUE`).
 
 **Returns**
 
@@ -238,9 +238,9 @@ ons_inactivity(from = NULL, to = NULL, cache = TRUE)
 
 **Arguments**
 
-- `from` — Date or character (YYYY-MM-DD). Start date. Defaults to `NULL` (all available data).
-- `to` — Date or character (YYYY-MM-DD). End date. Defaults to `NULL`.
-- `cache` — Logical. Use cached data if available (default `TRUE`).
+- `from`: Date or character (YYYY-MM-DD). Start date. Defaults to `NULL` (all available data).
+- `to`: Date or character (YYYY-MM-DD). End date. Defaults to `NULL`.
+- `cache`: Logical. Use cached data if available (default `TRUE`).
 
 **Returns**
 
@@ -270,9 +270,9 @@ ons_monthly_gdp(from = NULL, to = NULL, cache = TRUE)
 
 **Arguments**
 
-- `from` — Date or character (YYYY-MM-DD). Start date. Defaults to `NULL` (all available data).
-- `to` — Date or character (YYYY-MM-DD). End date. Defaults to `NULL`.
-- `cache` — Logical. Use cached data if available (default `TRUE`).
+- `from`: Date or character (YYYY-MM-DD). Start date. Defaults to `NULL` (all available data).
+- `to`: Date or character (YYYY-MM-DD). End date. Defaults to `NULL`.
+- `cache`: Logical. Use cached data if available (default `TRUE`).
 
 **Returns**
 
@@ -302,9 +302,9 @@ ons_population(from = NULL, to = NULL, cache = TRUE)
 
 **Arguments**
 
-- `from` — Date or character (YYYY-MM-DD). Start date. Defaults to `NULL` (all available data).
-- `to` — Date or character (YYYY-MM-DD). End date. Defaults to `NULL`.
-- `cache` — Logical. Use cached data if available (default `TRUE`).
+- `from`: Date or character (YYYY-MM-DD). Start date. Defaults to `NULL` (all available data).
+- `to`: Date or character (YYYY-MM-DD). End date. Defaults to `NULL`.
+- `cache`: Logical. Use cached data if available (default `TRUE`).
 
 **Returns**
 
@@ -339,10 +339,10 @@ ons_productivity(
 
 **Arguments**
 
-- `measure` — Character. One of `"per_hour"` (default, output per hour worked) or `"per_worker"` (output per worker). Both are seasonally adjusted indices.
-- `from` — Date or character (YYYY-MM-DD). Start date. Defaults to `NULL` (all available data).
-- `to` — Date or character (YYYY-MM-DD). End date. Defaults to `NULL`.
-- `cache` — Logical. Use cached data if available (default `TRUE`).
+- `measure`: Character. One of `"per_hour"` (default, output per hour worked) or `"per_worker"` (output per worker). Both are seasonally adjusted indices.
+- `from`: Date or character (YYYY-MM-DD). Start date. Defaults to `NULL` (all available data).
+- `to`: Date or character (YYYY-MM-DD). End date. Defaults to `NULL`.
+- `cache`: Logical. Use cached data if available (default `TRUE`).
 
 **Returns**
 
@@ -372,9 +372,9 @@ ons_public_finances(from = NULL, to = NULL, cache = TRUE)
 
 **Arguments**
 
-- `from` — Date or character (YYYY-MM-DD). Start date. Defaults to `NULL` (all available data).
-- `to` — Date or character (YYYY-MM-DD). End date. Defaults to `NULL`.
-- `cache` — Logical. Use cached data if available (default `TRUE`).
+- `from`: Date or character (YYYY-MM-DD). Start date. Defaults to `NULL` (all available data).
+- `to`: Date or character (YYYY-MM-DD). End date. Defaults to `NULL`.
+- `cache`: Logical. Use cached data if available (default `TRUE`).
 
 **Returns**
 
@@ -409,10 +409,10 @@ ons_retail_sales(
 
 **Arguments**
 
-- `type` — Character. One of `"volume"` (default, quantity bought, seasonally adjusted) or `"value"` (amount spent, not seasonally adjusted).
-- `from` — Date or character (YYYY-MM-DD). Start date. Defaults to `NULL` (all available data).
-- `to` — Date or character (YYYY-MM-DD). End date. Defaults to `NULL`.
-- `cache` — Logical. Use cached data if available (default `TRUE`).
+- `type`: Character. One of `"volume"` (default, quantity bought, seasonally adjusted) or `"value"` (amount spent, not seasonally adjusted).
+- `from`: Date or character (YYYY-MM-DD). Start date. Defaults to `NULL` (all available data).
+- `to`: Date or character (YYYY-MM-DD). End date. Defaults to `NULL`.
+- `cache`: Logical. Use cached data if available (default `TRUE`).
 
 **Returns**
 
@@ -442,8 +442,8 @@ ons_search(query, limit = 10L)
 
 **Arguments**
 
-- `query` — Character. Search term (e.g. `"GDP growth"`, `"unemployment"`).
-- `limit` — Integer. Maximum number of results to return (default 10, maximum 50).
+- `query`: Character. Search term (e.g. `"GDP growth"`, `"unemployment"`).
+- `limit`: Integer. Maximum number of results to return (default 10, maximum 50).
 
 **Returns**
 
@@ -478,10 +478,10 @@ ons_trade(
 
 **Arguments**
 
-- `measure` — Character. One of `"balance"` (default, trade balance), `"exports"` (total exports), or `"imports"` (total imports). All in GBP millions, current prices, seasonally adjusted.
-- `from` — Date or character (YYYY-MM-DD). Start date. Defaults to `NULL` (all available data).
-- `to` — Date or character (YYYY-MM-DD). End date. Defaults to `NULL`.
-- `cache` — Logical. Use cached data if available (default `TRUE`).
+- `measure`: Character. One of `"balance"` (default, trade balance), `"exports"` (total exports), or `"imports"` (total imports). All in GBP millions, current prices, seasonally adjusted.
+- `from`: Date or character (YYYY-MM-DD). Start date. Defaults to `NULL` (all available data).
+- `to`: Date or character (YYYY-MM-DD). End date. Defaults to `NULL`.
+- `cache`: Logical. Use cached data if available (default `TRUE`).
 
 **Returns**
 
@@ -511,9 +511,9 @@ ons_unemployment(from = NULL, to = NULL, cache = TRUE)
 
 **Arguments**
 
-- `from` — Date or character (YYYY-MM-DD). Start date. Defaults to `NULL` (all available data).
-- `to` — Date or character (YYYY-MM-DD). End date. Defaults to `NULL`.
-- `cache` — Logical. Use cached data if available (default `TRUE`).
+- `from`: Date or character (YYYY-MM-DD). Start date. Defaults to `NULL` (all available data).
+- `to`: Date or character (YYYY-MM-DD). End date. Defaults to `NULL`.
+- `cache`: Logical. Use cached data if available (default `TRUE`).
 
 **Returns**
 
@@ -548,10 +548,10 @@ ons_wages(
 
 **Arguments**
 
-- `measure` — Character. One of `"level"` (default, GBP per week), `"growth"` (year-on-year 3-month average percentage change), or `"real"` (real terms index, seasonally adjusted regular pay).
-- `from` — Date or character (YYYY-MM-DD). Start date. Defaults to `NULL` (all available data).
-- `to` — Date or character (YYYY-MM-DD). End date. Defaults to `NULL`.
-- `cache` — Logical. Use cached data if available (default `TRUE`).
+- `measure`: Character. One of `"level"` (default, GBP per week), `"growth"` (year-on-year 3-month average percentage change), or `"real"` (real terms index, seasonally adjusted regular pay).
+- `from`: Date or character (YYYY-MM-DD). Start date. Defaults to `NULL` (all available data).
+- `to`: Date or character (YYYY-MM-DD). End date. Defaults to `NULL`.
+- `cache`: Logical. Use cached data if available (default `TRUE`).
 
 **Returns**
 

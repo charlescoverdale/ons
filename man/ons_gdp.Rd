@@ -16,7 +16,7 @@ ons_gdp(
 }
 \arguments{
 \item{measure}{Character. One of \code{"growth"} (default, quarter-on-quarter
-percentage change), \code{"yoy"} (year-on-year percentage change), \code{"level"}
+percentage change), \code{"yoy"} (percentage change on the same quarter a year earlier), \code{"level"}
 (chained volume measure in GBP millions, seasonally adjusted), or
 \code{"nominal"} (current price GBP millions, seasonally adjusted).}
 
@@ -48,10 +48,10 @@ options(op)
 
 }
 \seealso{
-Other economic indicators: 
-\code{\link{ons_cpi}()},
-\code{\link{ons_monthly_gdp}()},
-\code{\link{ons_population}()},
-\code{\link{ons_productivity}()}
+Other economic indicators:
+\code{\link[=ons_cpi]{ons_cpi()}},
+\code{\link[=ons_monthly_gdp]{ons_monthly_gdp()}},
+\code{\link[=ons_population]{ons_population()}},
+\code{\link[=ons_productivity]{ons_productivity()}}
 }
 \concept{economic indicators}

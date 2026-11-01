@@ -46,8 +46,8 @@ options(op)
 
 }
 \seealso{
-Other trade and prices: 
-\code{\link{ons_house_prices}()},
-\code{\link{ons_retail_sales}()}
+Other trade and prices:
+\code{\link[=ons_house_prices]{ons_house_prices()}},
+\code{\link[=ons_retail_sales]{ons_retail_sales()}}
 }
 \concept{trade and prices}

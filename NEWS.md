@@ -1,3 +1,26 @@
+# ons 0.1.5
+
+Data-correctness release.
+
+* `ons_gdp()` read every measure from the first-estimate dataset (PN2),
+  which is only updated at each first estimate. After the quarterly
+  national accounts (QNA) are published it is out of date: in October
+  2026 it still gave Q2 2026 GDP of GBP 712.5bn in the old chained-volume
+  prices, where the national accounts give GBP 744.5bn after Blue Book
+  2026, and growth of 0.4% rather than the revised 0.5%. Each series is
+  now read from whichever of the two datasets the ONS released most
+  recently.
+* `ons_gdp(measure = "yoy")` returned annual figures (series IHYP), one
+  row a year, from a quarterly function. It now returns the quarterly
+  series (IHYR): growth on the same quarter a year earlier.
+* `ons_wages(measure = "real")` failed with HTTP 404: the ONS moved the
+  real earnings index (A2F8) from the LMS dataset to EMP. Both are now
+  tried.
+* The cache never expired, so a series downloaded once was returned
+  unchanged on every later call, missing each new release. Cached copies
+  are now re-fetched after 24 hours; set `options(ons.cache_ttl =
+  <hours>)` to change this.
+
 # ons 0.1.4
 
 * Added rate limiting to `ons_search()` to match other API functions and

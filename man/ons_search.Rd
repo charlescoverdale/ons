@@ -38,8 +38,8 @@ options(op)
 
 }
 \seealso{
-Other data access: 
-\code{\link{clear_cache}()},
-\code{\link{ons_get}()}
+Other data access:
+\code{\link[=clear_cache]{clear_cache()}},
+\code{\link[=ons_get]{ons_get()}}
 }
 \concept{data access}

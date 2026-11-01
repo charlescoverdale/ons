@@ -47,8 +47,8 @@ options(op)
 
 }
 \seealso{
-Other data access: 
-\code{\link{clear_cache}()},
-\code{\link{ons_search}()}
+Other data access:
+\code{\link[=clear_cache]{clear_cache()}},
+\code{\link[=ons_search]{ons_search()}}
 }
 \concept{data access}

@@ -4,9 +4,12 @@
 #' from 1948 (levels) or 1955 (growth rates).
 #'
 #' @param measure Character. One of `"growth"` (default, quarter-on-quarter
-#'   percentage change), `"yoy"` (year-on-year percentage change), `"level"`
-#'   (chained volume measure in GBP millions, seasonally adjusted), or
-#'   `"nominal"` (current price GBP millions, seasonally adjusted).
+#'   percentage change), `"yoy"` (percentage change on the same quarter a
+#'   year earlier), `"level"` (chained volume measure in GBP millions,
+#'   seasonally adjusted), or `"nominal"` (current price GBP millions,
+#'   seasonally adjusted). Each series is read from whichever of the
+#'   first-estimate (PN2) and quarterly national accounts (QNA) datasets
+#'   the ONS released most recently.
 #' @param from Date or character (YYYY-MM-DD). Start date. Defaults to
 #'   `NULL` (all available data).
 #' @param to Date or character (YYYY-MM-DD). End date. Defaults to `NULL`.
@@ -40,13 +43,13 @@ ons_gdp <- function(measure = c("growth", "yoy", "level", "nominal"),
 
   code <- switch(measure,
     growth  = "IHYQ",
-    yoy     = "IHYP",
+    yoy     = "IHYR",
     level   = "ABMI",
     nominal = "YBHA"
   )
 
   topic_path   <- "/economy/grossdomesticproductgdp"
-  dataset_code <- "pn2"
+  dataset_code <- c("qna", "pn2")
 
   cli::cli_progress_step("Fetching GDP ({measure})")
   out <- ons_fetch(code, topic_path, dataset_code,

@@ -37,10 +37,10 @@ options(op)
 
 }
 \seealso{
-Other economic indicators: 
-\code{\link{ons_cpi}()},
-\code{\link{ons_gdp}()},
-\code{\link{ons_population}()},
-\code{\link{ons_productivity}()}
+Other economic indicators:
+\code{\link[=ons_cpi]{ons_cpi()}},
+\code{\link[=ons_gdp]{ons_gdp()}},
+\code{\link[=ons_population]{ons_population()}},
+\code{\link[=ons_productivity]{ons_productivity()}}
 }
 \concept{economic indicators}

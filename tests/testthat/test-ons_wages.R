@@ -22,3 +22,10 @@ test_that("ons_wages() growth measure works", {
 test_that("ons_wages() rejects invalid measure", {
   expect_error(ons_wages(measure = "invalid"))
 })
+
+test_that("ons_wages real finds A2F8 after its move to the EMP dataset", {
+  skip_on_cran()
+  skip_if_offline()
+  w <- ons_wages(measure = "real", from = "2025-01-01")
+  expect_gt(nrow(w), 6L)
+})
