@@ -43,8 +43,7 @@ ons_search <- function(query, limit = 10L) {
     "&limit=", limit
   )
 
-  req <- httr2::request(url)
-  req <- httr2::req_user_agent(req, "ons R package (https://github.com/charlescoverdale/ons)")
+  req <- ons_request(url)
   req <- httr2::req_throttle(req, rate = 5 / 10)
   req <- httr2::req_error(req, is_error = function(resp) FALSE)
   resp <- tryCatch(

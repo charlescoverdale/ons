@@ -1,3 +1,13 @@
+# ons (development version)
+
+* HTTP requests to the ONS, the ONS Search API and HM Land Registry had no
+  timeout, so a server that accepted the connection and then stopped
+  sending hung the R session indefinitely. This affected every download
+  function and `ons_search()`. Requests now abort if the connection takes
+  over 20 seconds to open or the transfer stalls for 60 seconds, and
+  surface the usual "Failed to connect to ONS" error. Set
+  `options(ons.timeout = <seconds>)` for a hard cap on each request.
+
 # ons 0.1.5
 
 Data-correctness release.

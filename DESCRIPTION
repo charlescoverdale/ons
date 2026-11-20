@@ -1,6 +1,6 @@
 Package: ons
 Title: Download Data from the 'Office for National Statistics'
-Version: 0.1.5
+Version: 0.1.5.9000
 Authors@R:
     person("Charles", "Coverdale", , "charlesfcoverdale@gmail.com",
            role = c("aut", "cre"))

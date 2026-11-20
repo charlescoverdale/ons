@@ -5,6 +5,40 @@ ons_base_url <- function() {
 "https://www.ons.gov.uk/generator"
 }
 
+# ---- Request builder ----
+
+#' Build a request with the package user agent and stall protection
+#'
+#' httr2 sets no transfer timeout, so a server that accepts the connection
+#' and then stops sending would hang the session indefinitely. These
+#' options abort a connection that takes over 20 seconds to open, or a
+#' transfer that moves under 1 byte per second for 60 seconds, while
+#' letting a slow but progressing download finish. Set the `ons.timeout`
+#' option to a number of seconds for a hard cap on the whole request as
+#' well.
+#' @param url Character. The full request URL.
+#' @return An httr2 request.
+#' @noRd
+ons_request <- function(url) {
+  req <- httr2::request(url)
+  req <- httr2::req_user_agent(req, "ons R package (https://github.com/charlescoverdale/ons)")
+  req <- httr2::req_options(
+    req,
+    connecttimeout = 20L,
+    low_speed_limit = 1L,
+    low_speed_time = 60L
+  )
+  timeout <- getOption("ons.timeout", default = NULL)
+  if (!is.null(timeout)) {
+    if (!is.numeric(timeout) || length(timeout) != 1L || is.na(timeout) ||
+        timeout <= 0) {
+      cli::cli_abort("Option {.code ons.timeout} must be a single positive number of seconds.")
+    }
+    req <- httr2::req_timeout(req, timeout)
+  }
+  req
+}
+
 # ---- Fetch a single CDID time series ----
 
 #' @noRd
@@ -68,8 +102,7 @@ ons_search_cdid <- function(cdid) {
     "&limit=1"
   )
 
-  req <- httr2::request(url)
-  req <- httr2::req_user_agent(req, "ons R package (https://github.com/charlescoverdale/ons)")
+  req <- ons_request(url)
   req <- httr2::req_throttle(req, rate = 5 / 10)
   req <- httr2::req_retry(req, max_tries = 6L, backoff = ~ 8,
                           is_transient = function(resp) {
@@ -282,8 +315,7 @@ download_cached_ons <- function(url, cache = TRUE) {
     if (as.numeric(age) < ons_cache_ttl()) return(readRDS(cache_file))
   }
 
-  req <- httr2::request(url)
-  req <- httr2::req_user_agent(req, "ons R package (https://github.com/charlescoverdale/ons)")
+  req <- ons_request(url)
   req <- httr2::req_throttle(req, rate = 5 / 10)
   req <- httr2::req_retry(req, max_tries = 6L, backoff = ~ 8,
                           is_transient = function(resp) {
