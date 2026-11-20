@@ -71,7 +71,7 @@ Other economic indicators:
 op <- options(ons.cache_dir = tempdir())
 try(ons_gdp(from = "2020-01-01"))
 #> ℹ Fetching GDP (growth)
-#> ✔ Fetching GDP (growth) [295ms]
+#> ✔ Fetching GDP (growth) [123ms]
 #> 
 #>          date value
 #> 1  2020-01-01  -2.8
@@ -100,6 +100,7 @@ try(ons_gdp(from = "2020-01-01"))
 #> 24 2025-10-01   0.0
 #> 25 2026-01-01   0.6
 #> 26 2026-04-01   0.5
+#> 27 2026-07-01   0.7
 options(op)
 # }
 ```

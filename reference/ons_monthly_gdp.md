@@ -55,13 +55,13 @@ Other economic indicators:
 op <- options(ons.cache_dir = tempdir())
 try(ons_monthly_gdp(from = "2020-01-01"))
 #> ℹ Fetching monthly GDP
-#> Waiting 10s for retry backoff ■■■■■■■                         
-#> Waiting 10s for retry backoff ■■■■■■■■■■■■■■■■                
-#> Waiting 10s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■       
+#> Waiting 10s for retry backoff ■■■■■                           
+#> Waiting 10s for retry backoff ■■■■■■■■■■■■■■                  
+#> Waiting 10s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■         
 #> Waiting 10s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 
 #> ℹ Fetching monthly GDP
 
-#> ✔ Fetching monthly GDP [10.5s]
+#> ✔ Fetching monthly GDP [10.4s]
 #> 
 #>          date value
 #> 1  2020-01-01  96.0
@@ -143,7 +143,8 @@ try(ons_monthly_gdp(from = "2020-01-01"))
 #> 77 2026-05-01 102.2
 #> 78 2026-06-01 102.6
 #> 79 2026-07-01 103.0
-#> 80 2026-08-01 103.1
+#> 80 2026-08-01 103.0
+#> 81 2026-09-01 103.3
 options(op)
 # }
 ```

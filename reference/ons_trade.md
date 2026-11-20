@@ -64,13 +64,7 @@ Other trade and prices:
 op <- options(ons.cache_dir = tempdir())
 try(ons_trade(from = "2020-01-01"))
 #> ℹ Fetching trade (balance)
-#> Waiting 10s for retry backoff ■■■■■■                          
-#> Waiting 10s for retry backoff ■■■■■■■■■■■■■■■                 
-#> Waiting 10s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■        
-#> Waiting 10s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 
-#> ℹ Fetching trade (balance)
-
-#> ✔ Fetching trade (balance) [10.3s]
+#> ✔ Fetching trade (balance) [109ms]
 #> 
 #>          date  value
 #> 1  2020-01-01   2502
@@ -151,8 +145,9 @@ try(ons_trade(from = "2020-01-01"))
 #> 76 2026-04-01  -6059
 #> 77 2026-05-01  -2494
 #> 78 2026-06-01  -4221
-#> 79 2026-07-01  -2322
-#> 80 2026-08-01   -920
+#> 79 2026-07-01  -2802
+#> 80 2026-08-01  -2567
+#> 81 2026-09-01  -5134
 options(op)
 # }
 ```

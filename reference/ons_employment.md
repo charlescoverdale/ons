@@ -63,7 +63,7 @@ Other labour market:
 op <- options(ons.cache_dir = tempdir())
 try(ons_employment(from = "2020-01-01"))
 #> ℹ Fetching employment rate (total)
-#> ✔ Fetching employment rate (total) [300ms]
+#> ✔ Fetching employment rate (total) [316ms]
 #> 
 #>          date value
 #> 1  2020-01-01  76.5
@@ -145,6 +145,7 @@ try(ons_employment(from = "2020-01-01"))
 #> 77 2026-05-01  75.1
 #> 78 2026-06-01  75.1
 #> 79 2026-07-01  75.3
+#> 80 2026-08-01  75.4
 options(op)
 # }
 ```

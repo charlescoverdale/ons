@@ -49,15 +49,17 @@ try(ons_public_finances(from = "2020-01-01"))
 #> ℹ Fetching public sector net borrowing
 #> Warning: unable to translate 'HTTP/2 200 
 
-#> date: Sun, 01 Nov 2026 14:08:43 GMT
+#> date: Fri, 20 Nov 2026 08:42:41 GMT
 
 #> content-type: application/octet-stream;charset=utf-8
 
-#> cache-control: public, s-maxage=900, max-age=900, stale-while-revalidate=10
+#> content-length: 3192
 
-#> content-disposition: attachment; filename="Public sector net borrowing,...' to a wide string
+#> allow: DELETE, GET, HEAD, POST, PUT, OPTIONS, PATCH
+
+#> cache-control: public, s-maxage=900, max-age=900, stale-while-revalidate=...' to a wide string
 #> Warning: input string 1 is invalid
-#> ✔ Fetching public sector net borrowing [329ms]
+#> ✔ Fetching public sector net borrowing [242ms]
 #> 
 #>          date  value
 #> 1  2020-01-01  -8160
@@ -120,27 +122,28 @@ try(ons_public_finances(from = "2020-01-01"))
 #> 58 2024-10-01  19092
 #> 59 2024-11-01  13263
 #> 60 2024-12-01  18418
-#> 61 2025-01-01 -14973
-#> 62 2025-02-01  11632
-#> 63 2025-03-01  13430
-#> 64 2025-04-01  20158
-#> 65 2025-05-01  18245
-#> 66 2025-06-01  24273
-#> 67 2025-07-01   1489
-#> 68 2025-08-01  15361
-#> 69 2025-09-01  22764
-#> 70 2025-10-01  16177
-#> 71 2025-11-01   9921
-#> 72 2025-12-01  12930
+#> 61 2025-01-01 -14960
+#> 62 2025-02-01  11646
+#> 63 2025-03-01  13443
+#> 64 2025-04-01  20171
+#> 65 2025-05-01  18258
+#> 66 2025-06-01  24286
+#> 67 2025-07-01   1502
+#> 68 2025-08-01  15374
+#> 69 2025-09-01  22778
+#> 70 2025-10-01  16191
+#> 71 2025-11-01   9935
+#> 72 2025-12-01  12943
 #> 73 2026-01-01 -31960
 #> 74 2026-02-01  12827
-#> 75 2026-03-01  12026
-#> 76 2026-04-01  23132
-#> 77 2026-05-01  19274
-#> 78 2026-06-01  13289
-#> 79 2026-07-01    374
-#> 80 2026-08-01  17252
-#> 81 2026-09-01  24520
+#> 75 2026-03-01  12022
+#> 76 2026-04-01  23114
+#> 77 2026-05-01  19043
+#> 78 2026-06-01  13038
+#> 79 2026-07-01   -242
+#> 80 2026-08-01  16435
+#> 81 2026-09-01  22881
+#> 82 2026-10-01  17036
 options(op)
 # }
 ```

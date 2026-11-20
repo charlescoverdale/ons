@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">ons</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.5</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.5.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,7 +33,11 @@
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="0.1.5" id="ons-015">ons 0.1.5<a class="anchor" aria-label="anchor" href="#ons-015"></a></h2>
+<h2 class="pkg-version" data-toc-text="development version" id="ons-development-version">ons (development version)<a class="anchor" aria-label="anchor" href="#ons-development-version"></a></h2>
+<ul><li>HTTP requests to the ONS, the ONS Search API and HM Land Registry had no timeout, so a server that accepted the connection and then stopped sending hung the R session indefinitely. This affected every download function and <code><a href="../reference/ons_search.html">ons_search()</a></code>. Requests now abort if the connection takes over 20 seconds to open or the transfer stalls for 60 seconds, and surface the usual “Failed to connect to ONS” error. Set <code>options(ons.timeout = &lt;seconds&gt;)</code> for a hard cap on each request.</li>
+</ul></div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.1.5" id="ons-015">ons 0.1.5<a class="anchor" aria-label="anchor" href="#ons-015"></a></h2><p class="text-muted">CRAN release: 2026-11-01</p>
 <p>Data-correctness release.</p>
 <ul><li>
 <code><a href="../reference/ons_gdp.html">ons_gdp()</a></code> read every measure from the first-estimate dataset (PN2), which is only updated at each first estimate. After the quarterly national accounts (QNA) are published it is out of date: in October 2026 it still gave Q2 2026 GDP of GBP 712.5bn in the old chained-volume prices, where the national accounts give GBP 744.5bn after Blue Book 2026, and growth of 0.4% rather than the revised 0.5%. Each series is now read from whichever of the two datasets the ONS released most recently.</li>
